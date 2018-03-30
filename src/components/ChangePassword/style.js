@@ -1,0 +1,150 @@
+
+
+import { StyleSheet,
+  Platform,
+  Dimensions,
+} from 'react-native';
+import * as constants from '../../utils/constants';
+
+const isTablet = Dimensions.get('window').width > 450;
+
+module.exports = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#ffffff',
+  },
+  viewFrameForTablet: {
+    flex: 1,
+    backgroundColor: '#ffffff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  shadowStyle: {
+    borderWidth: 1,
+    borderRadius: 5,
+    borderColor: '#ddd',
+    borderBottomWidth: 0,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.8,
+    shadowRadius: 15,
+    elevation: 1,
+    marginLeft: 5,
+    marginRight: 5,
+    marginTop: 10,
+  },
+  topImageContainerView: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  changePasswordView: {
+    flex: 1,
+    height: 40,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 10,
+  },
+  changePasswordText: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    textAlign: 'left',
+    fontFamily: 'Montserrat-SemiBold',
+    color: constants.COLOR_RGB_76,
+    paddingTop: 15,
+    paddingHorizontal: 10,
+    borderColor: constants.COLOR_RGB_128,
+  },
+  topImageStyle: {
+    width: 170,
+    height: 170,
+  },
+  inputBoxView: {
+    flex: 1,
+    height: 54,
+    marginTop: 0,
+  },
+  inputBoxStyle: {
+    height: 40,
+    borderRadius: 2,
+    borderColor: 'rgb(128,128,128)',
+    borderWidth: 1,
+    marginTop: 0,
+    marginHorizontal: 15,
+    paddingHorizontal: 5,
+    color: constants.COLOR_RGB_128,
+    fontSize: 14,
+    fontFamily: 'Montserrat-Regular',
+  },
+  showPasswordView: {
+    flex: 1,
+    flexDirection: 'row',
+    height: 44,
+    marginTop: 5,
+    marginHorizontal: 8,
+  },
+  showPasswordImage: {
+    height: 20,
+    width: 20,
+  },
+  showPasswordText1: {
+    marginTop: 20,
+    height: 40,
+    borderColor: '#d7d7d7',
+    borderWidth: 1,
+    fontSize: 14,
+    borderRadius: 2,
+    marginHorizontal: 10,
+    paddingHorizontal: 10,
+  },
+  doneButtonView: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 40,
+  },
+  doneButtonTouchable: {
+    marginHorizontal: 5,
+    width: isTablet ? 90 : null,
+    height: 40,
+    borderRadius: 4,
+    backgroundColor: constants.COLOR_BLUE,
+  },
+  showPasswordText: {
+    color: constants.COLOR_RGB_128,
+    fontSize: 14,
+    fontFamily: 'Montserrat-Regular',
+  },
+  doneTextStyle: {
+    color: 'white',
+    fontSize: 14,
+    fontFamily: 'Montserrat-Regular',
+    textAlign: 'center',
+  },
+  doneButtonFrame: {
+    marginTop: 0,
+    paddingHorizontal: 0,
+    height: 40,
+    borderRadius: 4,
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: isTablet ? 100 : null,
+    backgroundColor: constants.COLOR_BLUE,
+  },
+  showPasswordButtonImageView: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 44,
+    width: 44,
+  },
+  showPasswordButtonImageTouchable: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: 1,
+    borderRadius: 4,
+    borderColor: constants.COLOR_RGB_216,
+    height: 30,
+    width: 30,
+  },
+
+});
