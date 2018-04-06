@@ -3,6 +3,7 @@ import { AppRegistry, View, Text } from 'react-native';
 import { Provider, connect } from 'react-redux';
 import { setJSExceptionHandler } from 'react-native-exception-handler';
 import { withNetworkConnectivity } from 'react-native-offline';
+import SplashScreen from 'react-native-splash-screen';
 
 import './src/ReactotronConfig';
 import configureStore from './src/configureStore';
@@ -17,13 +18,17 @@ export default class BossStaffApp extends Component {
   constructor(props) {
     super(props);
     this.store = configureStore();
-    setJSExceptionHandler(this.globalJSErrorhandler, true);
+    // setJSExceptionHandler(this.globalJSErrorhandler, true);
     this.state = {
       isGlobalError: false,
       error: null,
       isFatal: null,
       isBasePathLoaded: false,
     };
+  }
+
+  componentDidMount() {
+    SplashScreen.hide();
   }
 
   globalJSErrorhandler = (error, isFatal) => {

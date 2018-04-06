@@ -42,7 +42,7 @@ export default class SecurityAppAuth {
     }
     let response;
     try {
-      response = await httpService().post(`${baseUrl}/api/security-app/v1/sessions/renew`, {
+      response = await httpService().post(`${baseUrl}/api/staff-app/v1/sessions/renew`, {
         renewalToken,
       });
     } catch (error) {
@@ -80,7 +80,7 @@ export default class SecurityAppAuth {
     const baseUrl = await AppManager.getBaseUrl();
     let response;
     try {
-      response = await httpService().post(`${baseUrl}/api/security-app/v1/sessions/new`, {
+      response = await httpService().post(`${baseUrl}/api/staff-app/v1/sessions/new`, {
         username: email,
         password,
       });

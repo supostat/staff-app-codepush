@@ -94,6 +94,7 @@ export const initAblyService = data => (dispatch, getState) => {
     personalChannelName,
     presenceChannelName,
   }).then((ablyService) => {
+    console.log(ablyService);
     return ablyService;
   });
 };

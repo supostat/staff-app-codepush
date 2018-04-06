@@ -1,28 +1,52 @@
 import React from 'react';
-import { DrawerNavigator, NavigationActions } from 'react-navigation';
+import {
+  DrawerNavigator,
+  NavigationActions,
+  TabNavigator,
+} from 'react-navigation';
 import { connect } from 'react-redux';
-import { Alert } from 'react-native';
+import { Alert, View } from 'react-native';
 import { ConnectivityRenderer } from 'react-native-offline';
 import RNRestart from 'react-native-restart';
+import IIcon from 'react-native-vector-icons/MaterialCommunityIcons';
+import IIconFoundation from 'react-native-vector-icons/Foundation';
 import { logoutAction, initializeApp } from '../../actions/loginAction';
 import { updateDataAction } from '../../actions/sseActions';
 import NoInternet from '../NoInternet';
 import LeftMenuComponent from '../LeftMenu';
 import Profile from '../Profile/ProfileContainer';
+import Payments from '../Payments';
 import Shift from '../Shift/ShiftContainer';
 import * as constants from '../../utils/constants';
 
-const Drawer = DrawerNavigator(
+const Drawer = TabNavigator(
   {
-    ShiftScreen: { screen: Shift },
-    Profilescreen: { screen: Profile },
+    Profilescreen: {
+      screen: Profile,
+      navigationOptions: ({ navigation }) => ({
+        tabBarLabel: 'Profile',
+        tabBarIcon: ({ tintColor }) => <IIcon name="face-profile" size={25} color={tintColor} />,
+      }),
+    },
+    ShiftScreen: {
+      screen: Shift,
+      navigationOptions: ({ navigation }) => ({
+        tabBarLabel: `Shift's`,
+        tabBarIcon: ({ tintColor }) => <IIcon name="format-list-bulleted" size={25} color={tintColor} />,
+      }),
+    },
+    // PaymentScreen: {
+    //   screen: Payments,
+    //   navigationOptions: ({ navigation }) => ({
+    //     tabBarLabel: `Payment's`,
+    //     tabBarIcon: ({ tintColor }) => <IIconFoundation name="pound" size={25} color={tintColor} />,
+    //   }),
+    // },
   },
   {
-    drawerWidth: 300,
-    contentComponent: props => <LeftMenuComponent { ...props } />,
-    drawerOpenRoute: 'DrawerOpen',
-    drawerCloseRoute: 'DrawerClose',
-    drawerToggleRoute: 'DrawerToggle',
+    swipeEnabled: true,
+    animationEnabled: true,
+    lazy: true,
   },
 );
 
@@ -36,34 +60,36 @@ class SecureApp extends React.Component {
     };
   }
 
-  onAblyFailed = (error) => {
+  onAblyFailed = error => {
     this.ablyService.deactivate().then(() => {
       Alert.alert(
         'Error',
         'Something wrong with update service, please reload the app',
-        [
-          { text: 'Reload', onPress: () => RNRestart.Restart() },
-        ],
+        [{ text: 'Reload', onPress: () => RNRestart.Restart() }],
       );
     });
-  }
+  };
 
   componentWillMount() {
-    this.props.initializeApp({
-      onGetTokenFailed: this.onGetTokenFailed,
-      onFailed: this.onAblyFailed,
-    }).then((ablyService) => {
-      this.ablyService = ablyService;
-      this.ablyService.subscribeToPersonalChannel((message) => {
-        this.props.updateData(message.data);
-      });
-    }).catch((error) => {
-      if (error) {
-        if (error.response && error.response.status === 403) {
-          this.onLogout();
+    this.props
+      .initializeApp({
+        onGetTokenFailed: this.onGetTokenFailed,
+        onFailed: this.onAblyFailed,
+      })
+      .then(ablyService => {
+        this.ablyService = ablyService;
+        this.ablyService.subscribeToPersonalChannel(message => {
+          console.log(message);
+          this.props.updateData(message.data);
+        });
+      })
+      .catch(error => {
+        if (error) {
+          if (error.response && error.response.status === 403) {
+            this.onLogout();
+          }
         }
-      }
-    });
+      });
   }
 
   componentWillReceiveProps(nextProps) {
@@ -79,30 +105,28 @@ class SecureApp extends React.Component {
       Alert.alert(
         'Token',
         'Your authentication token was expired, please login again',
-        [
-          { text: 'OK' },
-        ],
+        [{ text: 'OK' }],
       );
     });
-  }
+  };
 
   onLogout = () => {
     return this.props.handleLogout().then(() => {
       const resetAction = NavigationActions.reset({
         index: 0,
-        actions: [
-          NavigationActions.navigate({ routeName: 'LoginScreen' }),
-        ],
+        actions: [NavigationActions.navigate({ routeName: 'LoginScreen' })],
       });
       this.props.navigation.dispatch(resetAction);
       if (!this.ablyService) {
-        constants.BUGSNAG.notify(new Error('!!! Ably service doesn\'t exist in onLogout function !!!'));
+        constants.BUGSNAG.notify(
+          new Error("!!! Ably service doesn't exist in onLogout function !!!"),
+        );
       } else {
         return this.ablyService.deactivate();
       }
       return Promise.resolve();
     });
-  }
+  };
 
   render() {
     if (!this.state.staffChecked) {
@@ -113,17 +137,19 @@ class SecureApp extends React.Component {
       <ConnectivityRenderer
         pingServerUrl={`${this.props.currentUrl}/api/v1/version`}
         timeout={10000}
-      >{isConnected => (
-        isConnected ? (
-          <Drawer screenProps={{
-            onLogout: this.onLogout,
-            onGetTokenFailed: this.onGetTokenFailed,
-          }}/>
-        ) : (
-          <NoInternet />
-        )
-      )}
-
+      >
+        {isConnected =>
+          isConnected ? (
+            <Drawer
+              screenProps={{
+                onLogout: this.onLogout,
+                onGetTokenFailed: this.onGetTokenFailed,
+              }}
+            />
+          ) : (
+            <NoInternet />
+          )
+        }
       </ConnectivityRenderer>
     );
   }

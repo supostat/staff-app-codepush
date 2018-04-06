@@ -26,7 +26,7 @@ export async function init() {
   const baseURL = await AppManager.getBaseUrl();
   let response;
   try {
-    response = await httpService(SecurityAppAuth).get(`${baseURL}/api/security-app/v1/init`);
+    response = await httpService(SecurityAppAuth).get(`${baseURL}/api/staff-app/v1/init`);
   } catch (error) {
     return Promise.reject(error);
   }

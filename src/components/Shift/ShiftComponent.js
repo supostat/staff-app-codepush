@@ -37,10 +37,11 @@ function MonthSection({ month }) {
 export default class ShiftComponent extends React.Component {
   constructor(props) {
     super(props);
+    const normalizedShifts = normalizeShifts(props.shifts);
     this.state = {
-      rotaShiftArray: [normalizeShifts(props.shifts)[0]],
+      rotaShiftArray: normalizedShifts.length === 0 ? [] : [normalizedShifts[0]],
       refreshing: false,
-      allShifts: !(normalizeShifts(props.shifts).length > 1),
+      allShifts: !(normalizedShifts.length > 1),
     };
   }
 
@@ -50,10 +51,11 @@ export default class ShiftComponent extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    const normalizedShifts = normalizeShifts(nextProps.shifts);
     if (!this.state.allShifts) {
-      this.setState({ rotaShiftArray: [normalizeShifts(nextProps.shifts)[0]] });
+      this.setState({ rotaShiftArray: normalizedShifts.length === 0 ? [] : [normalizedShifts[0]] });
     } else {
-      this.setState({ rotaShiftArray: normalizeShifts(nextProps.shifts) });
+      this.setState({ rotaShiftArray: normalizedShifts.length === 0 ? [] : normalizedShifts });
     }
   }
 
@@ -116,9 +118,10 @@ export default class ShiftComponent extends React.Component {
   }
 
   render() {
+    const { onLogout } = this.props.screenProps;
     return (
       <View style={styles.container}>
-        <NavScreen banner="Shifts" navigation={this.props.navigation} />
+        <NavScreen banner="Shifts" onLogout={onLogout} navigation={this.props.navigation} />
         <SectionList
             key="shifts"
             sections={this.state.rotaShiftArray}

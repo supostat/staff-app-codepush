@@ -56,7 +56,7 @@ export function createAblyService(options) {
   return AppManager.getBaseUrl().then((baseURL) => {
     const ablyRealtime = new Ably({
       authCallback: (tokenParams, callback) => {
-        httpService(SecurityAppAuth).get(`${baseURL}/api/security-app/v1/sessions/ably-auth`)
+        httpService(SecurityAppAuth).get(`${baseURL}/api/staff-app/v1/sessions/ably-auth`)
           .then((resp) => {
             onTokenObtained();
             callback(null, resp.data);
