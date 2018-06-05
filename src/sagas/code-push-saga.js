@@ -8,8 +8,7 @@ const codePushStatusDidChangeChannel = channel();
 const codePushDownloadDidProgressChannel = channel();
 
 export function* updatesSaga() {
-  try {
-    // Disable syncing on resume, but synchronize
+  // Disable syncing on resume, but synchronize
   // with CodePush every 5 seconds.
   yield spawn(codePushSaga, {
     syncOnResume: false,
@@ -29,16 +28,11 @@ export function* updatesSaga() {
         progress,
       }),
   });
-  } catch (error) {
-    console.log('error: ', error)
-  }
-  
 }
 
 export function* watchCodePushStatusDidChangeChannel() {
   while (true) {
     const action = yield take(codePushStatusDidChangeChannel);
-    console.log('status changed', action)
     yield put(action);
   }
 }
@@ -46,7 +40,6 @@ export function* watchCodePushStatusDidChangeChannel() {
 export function* watchCodePushDownloadDidProgressChannel() {
   while (true) {
     const action = yield take(codePushDownloadDidProgressChannel);
-    console.log('download progress', action)    
     yield put(action);
   }
 }
