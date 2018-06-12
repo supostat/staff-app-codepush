@@ -8,6 +8,7 @@ import style from './style';
 import * as constant from '../../utils/constants';
 import { NavScreenWithBack } from '../NavBar/TopNavScreen';
 import AsyncStorageUtil from '../../utils/AsyncStorageUtil';
+import CONFIG from '../../utils/config';
 
 const SWITCH_ON_ICO = require('../../../assets/switch_on.png');
 const SWITCH_OFF_ICO = require('../../../assets/switch_off.png');
@@ -18,7 +19,7 @@ export default class SettingComponent extends Component {
     super(props);
     this.state = {
       customUrlReceived: false,
-      customURL: props.currentUrl,
+      customURL: props.currentUrl === CONFIG.BASE ? '' : props.currentUrl,
     };
   }
 
