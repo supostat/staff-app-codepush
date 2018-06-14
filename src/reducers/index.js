@@ -9,6 +9,7 @@ import logoutReducer from './logoutReducer';
 import shifts from './shifts';
 import venues from './venues';
 import staffMember from './staffMember';
+import codePushReducer from './codePushReducer';
 
 export default combineReducers({
   loginReducer,
@@ -19,4 +20,5 @@ export default combineReducers({
   shifts,
   venues,
   staffMember,
+  codePushReducer,
 });

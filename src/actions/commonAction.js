@@ -7,6 +7,7 @@ export const STOP_SPINNER = 'STOP_SPINNER';
 export const UPDATE_IS_CUSTOM_URL = 'UPDATE_IS_CUSTOM_URL';
 export const UPDATE_CURRENT_URL = 'UPDATE_CURRENT_URL';
 export const CURRENT_URL = 'CURRENT_URL';
+export const PROGRESS_CHANGED = 'PROGRESS_CHANGED';
 
 export function startSpinner() {
   return { type: START_SPINNER };
