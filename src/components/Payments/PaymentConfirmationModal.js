@@ -1,18 +1,23 @@
 import React, { Component } from 'react';
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  ScrollView,
-  Modal,
-  TextInput,
-} from 'react-native';
+import { View, Text, TouchableOpacity, ScrollView, Modal } from 'react-native';
+import deviceInfo from '../../utils/deviceInfo';
+import styles from './styles';
+import PaymentConfirmForm from './PaymentConfirmForm';
 
 class PaymentConfirmationModal extends Component {
+  state = {
+    screen: {
+      isPortrait: !!deviceInfo.isPortrait(),
+      isLandscape: !!deviceInfo.isLandscape(),
+      isMobile: !!deviceInfo.isMobile(),
+      isTablet: !!deviceInfo.isTablet(),
+    },
+  };
+
   render() {
     return (
       <Modal
-        visible={this.state.isConfirmModalVisible}
+        visible={this.props.visible}
         transparent={true}
         animationType={'fade'}
         supportedOrientations={[
@@ -22,7 +27,7 @@ class PaymentConfirmationModal extends Component {
           'landscape-left',
           'landscape-right',
         ]}
-        onRequestClose={() => this.toggleConfirmModal()}
+        onRequestClose={this.props.toggleModal}
       >
         <View style={styles.modalPortal}>
           <ScrollView
@@ -35,7 +40,7 @@ class PaymentConfirmationModal extends Component {
           >
             <View style={styles.modalContent}>
               <View style={styles.modalClose}>
-                <TouchableOpacity onPress={() => this.toggleConfirmModal()}>
+                <TouchableOpacity onPress={() => this.props.toggleModal()}>
                   <View style={styles.modalCloseInner}>
                     <Text style={styles.modalCloseIcon}>&#xe909;</Text>
                   </View>
@@ -49,18 +54,12 @@ class PaymentConfirmationModal extends Component {
                     styles.modalWindowMobilePortrait,
                 ]}
               >
-                <View
-                  style={[
-                    styles.modalWindowHeader,
-                    styles.modalWindowHeaderRoleAlert,
-                  ]}
-                >
+                <View style={[styles.modalWindowHeader, styles.modalWindowHeaderRoleAlert]}>
                   <Text
                     style={[
                       styles.modalWindowTitle,
                       styles.modalWindowTitleThemeLight,
-                      this.state.screen.isTablet &&
-                        styles.modalWindowTitleTablet,
+                      this.state.screen.isTablet && styles.modalWindowTitleTablet,
                     ]}
                   >
                     Payment Confirmation
@@ -72,20 +71,16 @@ class PaymentConfirmationModal extends Component {
                       <View
                         style={[
                           styles.note,
-                          !(
-                            this.state.screen.isMobile &&
-                            this.state.screen.isLandscape
-                          ) && styles.noteLayoutColumn,
+                          !(this.state.screen.isMobile && this.state.screen.isLandscape) &&
+                            styles.noteLayoutColumn,
                         ]}
                       >
                         <Text
                           style={[
                             styles.noteIcon,
                             styles.noteIconRoleAlert,
-                            !(
-                              this.state.screen.isMobile &&
-                              this.state.screen.isLandscape
-                            ) && styles.noteIconLayoutColumn,
+                            !(this.state.screen.isMobile && this.state.screen.isLandscape) &&
+                              styles.noteIconLayoutColumn,
                           ]}
                         >
                           &#xe924;
@@ -94,74 +89,23 @@ class PaymentConfirmationModal extends Component {
                           <Text
                             style={[
                               styles.noteText,
-                              this.state.screen.isTablet &&
-                                styles.noteTextTablet,
-                              !(
-                                this.state.screen.isMobile &&
-                                this.state.screen.isLandscape
-                              ) && styles.noteTextLayoutColumn,
+                              this.state.screen.isTablet && styles.noteTextTablet,
+                              !(this.state.screen.isMobile && this.state.screen.isLandscape) &&
+                                styles.noteTextLayoutColumn,
                             ]}
                           >
                             By marking this payment as{' '}
-                            <Text style={styles.noteTextMarked}>Received</Text>{' '}
-                            I.... Lorem ipsum dolor sit amet, consectetur
-                            adipiscing elit.
+                            <Text style={styles.noteTextMarked}>Received</Text> I.... Lorem ipsum
+                            dolor sit amet, consectetur adipiscing elit.
                           </Text>
                         </View>
                       </View>
                     </View>
-                    <View style={[styles.serviceForm, styles.serviceFormLast]}>
-                      <View style={styles.form}>
-                        <View style={styles.formGroup}>
-                          <View
-                            style={[styles.textInput, styles.textInputLast]}
-                          >
-                            <TextInput
-                              underlineColorAndroid="transparent"
-                              placeholder="Password"
-                              keyboardType="default"
-                              placeholderTextColor="#808080"
-                              autoCapitalize="none"
-                              autoCorrect={false}
-                              secureTextEntry={true}
-                              style={styles.textInputField}
-                            />
-                          </View>
-                        </View>
-                        <View style={styles.formActions}>
-                          <View style={styles.button}>
-                            <TouchableOpacity
-                              onPress={() => this.toggleSuccessModal()}
-                            >
-                              <View
-                                style={[
-                                  styles.buttonContent,
-                                  styles.buttonContentThemeBlue,
-                                ]}
-                              >
-                                <Text
-                                  style={[
-                                    styles.buttonIcon,
-                                    styles.buttonIconThemeLight,
-                                    styles.buttonIconPositionBefore,
-                                  ]}
-                                >
-                                  &#xe90d;
-                                </Text>
-                                <Text
-                                  style={[
-                                    styles.buttonText,
-                                    styles.buttonTextThemeLight,
-                                  ]}
-                                >
-                                  Confirm
-                                </Text>
-                              </View>
-                            </TouchableOpacity>
-                          </View>
-                        </View>
-                      </View>
-                    </View>
+                    <PaymentConfirmForm
+                      acceptPayment={this.props.acceptPayment}
+                      paymentId={this.props.paymentId}
+                      toggleSuccessModal={this.props.toggleSuccessModal}
+                    />
                   </View>
                 </View>
               </View>

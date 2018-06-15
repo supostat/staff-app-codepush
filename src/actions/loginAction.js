@@ -14,6 +14,8 @@ import {
   stopSpinner,
 } from './commonAction';
 
+import { payments } from '../fixtures'; // BACKEND INTEGRATION NEEDED
+
 import AsyncStorageUtil from '../utils/AsyncStorageUtil';
 import * as CONST from '../utils/constants';
 import SecurityAppAuth from '../services/SecurityAppAuth';
@@ -65,7 +67,7 @@ export const initAct = () => (dispatch, getState) => {
   return init().then((response) => {
     dispatch({
       type: INIT_SUCCESS,
-      payload: response.data,
+      payload: { payments, ...response.data }, // BACKEND INTEGRATION NEEDED
     });
     dispatch(stopSpinner());
     return response;

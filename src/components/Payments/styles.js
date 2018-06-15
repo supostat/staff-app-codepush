@@ -1,49 +1,47 @@
 import { Dimensions, StyleSheet, Platform } from 'react-native';
 import deviceInfo from '../../utils/deviceInfo';
 import sizeNormalizer from '../../utils/sizeNormalizer';
-let normalize = sizeNormalizer.normalize;
+
+const normalize = sizeNormalizer.normalize;
 
 // Layout Blocks
 const MainStyles = {
   main: {
     flex: 1,
-    backgroundColor: '#ffffff'
+    backgroundColor: '#ffffff',
   },
-  mainHeader: {
-  },
+  mainHeader: {},
   mainHeaderInner: {
-    backgroundColor: '#ffffff'
+    backgroundColor: '#ffffff',
   },
   mainContent: {
-    flex: 1
+    flex: 1,
   },
   mainContentScroll: {
-    flex: 1
+    flex: 1,
   },
   mainContentInner: {
     paddingVertical: 24,
-    paddingHorizontal: 16
+    // paddingHorizontal: 16,
   },
   mainContentInnerTablet: {
-    paddingHorizontal: 32
+    paddingHorizontal: 32,
   },
-  mainFooter: {
-  },
+  mainFooter: {},
   mainFooterInner: {
-    backgroundColor: '#ffffff'
-  }
-}
+    backgroundColor: '#ffffff',
+  },
+};
 
 const ServiceStyles = {
-  service: {
-  },
+  service: {},
   serviceTypeCard: {
     flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   serviceContent: {
-    position: 'relative'
+    position: 'relative',
   },
   serviceContentTypeCard: {
     flex: 1,
@@ -59,17 +57,17 @@ const ServiceStyles = {
     },
     shadowOpacity: 0.15,
     shadowRadius: 24,
-    elevation: 5
+    elevation: 5,
   },
   serviceSettings: {
     position: 'absolute',
     top: -24,
     right: -16,
-    zIndex: 1000
+    zIndex: 1000,
   },
   serviceSettingsTypeCard: {
     top: -8,
-    right: 0
+    right: 0,
   },
   serviceSettingsIcon: {
     paddingVertical: 24,
@@ -77,15 +75,15 @@ const ServiceStyles = {
     fontFamily: 'icons',
     fontSize: normalize(14),
     lineHeight: normalize(14),
-    color: '#aaaaaa'
+    color: '#aaaaaa',
   },
   serviceImage: {
     alignItems: 'center',
-    marginBottom: 24
+    marginBottom: 24,
   },
   serviceProgress: {
     alignItems: 'center',
-    marginBottom: 24
+    marginBottom: 24,
   },
   serviceTitle: {
     marginBottom: 24,
@@ -94,7 +92,7 @@ const ServiceStyles = {
     lineHeight: normalize(24),
     fontWeight: '600',
     color: '#4c4c4c',
-    textAlign: 'center'
+    textAlign: 'center',
   },
   serviceSubtitle: {
     marginBottom: 24,
@@ -103,86 +101,83 @@ const ServiceStyles = {
     lineHeight: normalize(24),
     fontWeight: '300',
     color: '#4c4c4c',
-    textAlign: 'center'
+    textAlign: 'center',
   },
   serviceSubtitleMarked: {
     fontFamily: 'Montserrat-SemiBold',
     fontWeight: '600',
   },
   serviceNote: {
-    marginBottom: 24
+    marginBottom: 24,
   },
   serviceNoteLast: {
-    marginBottom: 0
+    marginBottom: 0,
   },
   serviceForm: {
-    marginBottom: 24
+    marginBottom: 24,
   },
   serviceFormLast: {
-    marginBottom: 0
+    marginBottom: 0,
   },
   serviceActions: {
-    alignItems: 'center'
+    alignItems: 'center',
   },
   serviceActionsLayoutRow: {
     flexDirection: 'row',
-    justifyContent: 'center'
-  }
-}
+    justifyContent: 'center',
+  },
+};
 
 const ProfileStyles = {
   profile: {
     flexDirection: 'row',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   profileContent: {
-    flex: 1
+    flex: 1,
   },
   profileContentTypeNarrow: {
-    maxWidth: 480
+    maxWidth: 480,
   },
   profileHeader: {
-    marginBottom: 24
+    marginBottom: 24,
   },
-  profileInfo: {
-  }
-}
+  profileInfo: {},
+};
 
 const FormStyles = {
-  form: {
-  },
+  form: {},
   formAlert: {
-    marginBottom: 16
+    marginBottom: 16,
   },
   formGroup: {
-    marginBottom: 24
+    marginBottom: 24,
   },
   formGroupLast: {
-    marginBottom: 0
+    marginBottom: 0,
   },
   formActions: {
-    alignItems: 'center'
-  }
-}
+    alignItems: 'center',
+  },
+};
 
 const RotaStyles = {
-  rota: {
-  },
+  rota: {},
   rotaFilter: {
-    marginBottom: 32
+    marginBottom: 32,
   },
   rotaList: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
-    marginBottom: 32
+    marginBottom: 32,
   },
   rotaItem: {
-    marginBottom: 24
+    marginBottom: 24,
   },
   rotaActions: {
-    alignItems: 'center'
+    alignItems: 'center',
   },
   rotaTextPlaceholder: {
     fontFamily: 'Montserrat-Regular',
@@ -190,51 +185,50 @@ const RotaStyles = {
     lineHeight: normalize(16),
     fontWeight: '400',
     color: '#808080',
-    textAlign: 'center'
+    textAlign: 'center',
   },
   rotaTextPlaceholderTablet: {
     fontSize: normalize(18),
-    lineHeight: normalize(18)
-  }
-}
+    lineHeight: normalize(18),
+  },
+};
 
 // Common BLocks
 const SwitchStyles = {
   switch: {
-    marginBottom: 16
+    marginBottom: 16,
   },
   switchLast: {
     paddingBottom: 16,
     marginBottom: 0,
     borderBottomWidth: 1,
-    borderBottomColor: '#d8d8d8'
+    borderBottomColor: '#d8d8d8',
   },
   switchContent: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   switchLabel: {
     fontFamily: 'Montserrat-Regular',
     fontSize: normalize(14),
     lineHeight: normalize(14),
     color: '#4c4c4c',
-    fontWeight: '400'
+    fontWeight: '400',
   },
-  switchInput: {
-  },
-}
+  switchInput: {},
+};
 
 const CheckboxStyles = {
   checkbox: {
-    marginBottom: 16
+    marginBottom: 16,
   },
   checkboxLast: {
-    marginBottom: 0
+    marginBottom: 0,
   },
   checkboxContent: {
     flexDirection: 'row',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   checkboxInput: {
     justifyContent: 'center',
@@ -244,13 +238,13 @@ const CheckboxStyles = {
     marginRight: 8,
     borderWidth: 1,
     borderRadius: 2,
-    borderColor: '#d8d8d8'
+    borderColor: '#d8d8d8',
   },
   checkboxInputIcon: {
     fontFamily: 'icons',
     fontSize: normalize(14),
     lineHeight: normalize(14),
-    color: '#aaaaaa'
+    color: '#aaaaaa',
   },
   checkboxLabel: {
     marginTop: 4,
@@ -258,19 +252,19 @@ const CheckboxStyles = {
     fontSize: normalize(14),
     lineHeight: normalize(14),
     color: '#4c4c4c',
-    fontWeight: '400'
-  }
-}
+    fontWeight: '400',
+  },
+};
 
 const TextInputStyles = {
   textInput: {
-    marginBottom: 16
+    marginBottom: 16,
   },
   textInputLast: {
-    marginBottom: 0
+    marginBottom: 0,
   },
   textInputIconWrap: {
-    position: 'relative'
+    position: 'relative',
   },
   textInputIcon: {
     position: 'absolute',
@@ -279,14 +273,14 @@ const TextInputStyles = {
     fontFamily: 'icons',
     fontSize: normalize(14),
     lineHeight: 40,
-    color: '#808080'
+    color: '#808080',
   },
   textInputIconPositionBefore: {
-    left: 8
+    left: 8,
   },
   textInputIconPositionAfter: {
     position: 'absolute',
-    right: 8
+    right: 8,
   },
   textInputField: {
     height: 40,
@@ -297,25 +291,24 @@ const TextInputStyles = {
     fontSize: normalize(14),
     lineHeight: normalize(14),
     color: '#4c4c4c',
-    borderRadius: 2
+    borderRadius: 2,
   },
   textInputFieldStateAlert: {
     borderColor: '#ed7f7e',
-    color: '#ed7f7e'
+    color: '#ed7f7e',
   },
   textInputFieldTypeIconBefore: {
-    paddingLeft: 32
+    paddingLeft: 32,
   },
   textInputFieldTypeIconAfter: {
-    paddingRight: 32
-  }
-}
+    paddingRight: 32,
+  },
+};
 
 const ButtonStyles = {
-  button: {
-  },
+  button: {},
   buttonLayoutFull: {
-    alignSelf: 'stretch'
+    alignSelf: 'stretch',
   },
   buttonContent: {
     flexDirection: 'row',
@@ -323,145 +316,143 @@ const ButtonStyles = {
     justifyContent: 'center',
     paddingVertical: 12,
     paddingHorizontal: 24,
-    borderRadius: 4
+    borderRadius: 4,
   },
   buttonContentSizeSmall: {
     paddingVertical: 8,
-    paddingHorizontal: 16
+    paddingHorizontal: 16,
   },
   buttonContentThemeBlue: {
-    backgroundColor: '#84bef0'
+    backgroundColor: '#84bef0',
   },
   buttonContentThemeGray: {
     backgroundColor: '#f0f0f0',
     borderWidth: 1,
-    borderColor: '#d8d8d8'
+    borderColor: '#d8d8d8',
   },
   buttonText: {
     fontFamily: 'Montserrat-Regular',
     fontSize: normalize(14),
     lineHeight: normalize(14),
-    fontWeight: '400'
+    fontWeight: '400',
   },
   buttonTextSizeSmall: {
     fontSize: normalize(12),
     lineHeight: normalize(12),
   },
   buttonTextThemeLight: {
-    color: '#ffffff'
+    color: '#ffffff',
   },
   buttonTextThemeDark: {
-    color: '#4c4c4c'
+    color: '#4c4c4c',
   },
   buttonIcon: {
     marginTop: -2,
     fontFamily: 'icons',
     fontSize: normalize(14),
-    lineHeight: normalize(14)
+    lineHeight: normalize(14),
   },
   buttonIconThemeLight: {
-    color: '#ffffff'
+    color: '#ffffff',
   },
   buttonIconThemeDark: {
-    color: '#4c4c4c'
+    color: '#4c4c4c',
   },
   buttonIconPositionBefore: {
-    marginRight: 8
+    marginRight: 8,
   },
   buttonIconPositionAfter: {
-    marginLeft: 8
-  }
-}
+    marginLeft: 8,
+  },
+};
 
 const ActionStyles = {
-  action: {
-  },
-  actionContent: {
-  },
+  action: {},
+  actionContent: {},
   actionText: {
     fontFamily: 'Montserrat-Regular',
     fontSize: normalize(14),
     lineHeight: normalize(14),
     fontWeight: '400',
-    color: '#808080'
-  }
-}
+    color: '#808080',
+  },
+};
 
 const MessageStyles = {
   message: {
     padding: 8,
     borderRadius: 4,
-    backgroundColor: '#eee'
+    backgroundColor: '#eee',
   },
   messageRoleNote: {
     borderRadius: 0,
-    padding: 12
+    padding: 12,
   },
   messageRoleAlert: {
-    backgroundColor: '#ed7f7e'
+    backgroundColor: '#ed7f7e',
   },
   messageRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   messageCounter: {
     fontFamily: 'Montserrat-SemiBold',
     fontSize: normalize(14),
     lineHeight: normalize(14),
     fontWeight: '600',
-    color: '#4c4c4c'
+    color: '#4c4c4c',
   },
   messageCounterTablet: {
     fontFamily: 'Montserrat-SemiBold',
     fontSize: normalize(18),
-    lineHeight: normalize(18)
+    lineHeight: normalize(18),
   },
   messageCounterThemeLight: {
-    color: '#ffffff'
+    color: '#ffffff',
   },
   messageText: {
     fontFamily: 'Montserrat-Light',
     fontSize: normalize(14),
     lineHeight: normalize(14),
     fontWeight: '300',
-    color: '#4c4c4c'
+    color: '#4c4c4c',
   },
   messageTextThemeLight: {
-    color: '#ffffff'
+    color: '#ffffff',
   },
   messageTextMarked: {
     fontFamily: 'Montserrat-SemiBold',
-    fontWeight: '600'
-  }
-}
+    fontWeight: '600',
+  },
+};
 
 const NoteStyles = {
   note: {
     flexDirection: 'row',
     justifyContent: 'flex-start',
-    alignItems: 'flex-start'
+    alignItems: 'flex-start',
   },
   noteLayoutColumn: {
     flexDirection: 'column',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   noteContent: {
-    flex: 1
+    flex: 1,
   },
   noteText: {
     fontFamily: 'Montserrat-Light',
     fontSize: normalize(14),
     lineHeight: normalize(16),
     fontWeight: '300',
-    color: '#4c4c4c'
+    color: '#4c4c4c',
   },
   noteTextMarked: {
     fontFamily: 'Montserrat-SemiBold',
-    fontWeight: '600'
+    fontWeight: '600',
   },
   noteTextLayoutColumn: {
-    textAlign: 'center'
+    textAlign: 'center',
   },
   noteTextTablet: {
     fontSize: normalize(16),
@@ -472,60 +463,59 @@ const NoteStyles = {
     fontFamily: 'icons',
     fontSize: 40,
     lineHeight: 42,
-    color: '#808080'
+    color: '#808080',
   },
   noteIconLayoutColumn: {
     fontSize: 80,
     lineHeight: 82,
     marginRight: 0,
-    marginBottom: 16
+    marginBottom: 16,
   },
   noteIconRoleAlert: {
-    color: '#ed7f7e'
+    color: '#ed7f7e',
   },
   noteIconRoleSuccess: {
-    color: '#86dd75'
-  }
-}
+    color: '#86dd75',
+  },
+};
 
 const userSummary = {
-  userSummary: {
-  },
+  userSummary: {},
   userSummaryGroup: {
-    alignItems: 'center'
+    alignItems: 'center',
   },
   userSummaryGroupRoleAddShift: {
     flexDirection: 'row',
     justifyContent: 'flex-start',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   userSummaryGroupRoleRota: {
     flexDirection: 'row',
     justifyContent: 'flex-start',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   userSummaryAvatar: {
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 16
+    marginBottom: 16,
   },
   userSummaryAvatarRoleAddShift: {
     marginBottom: 0,
-    marginRight: 16
+    marginRight: 16,
   },
   userSummaryAvatarRoleRota: {
     marginBottom: 0,
-    marginRight: 24
+    marginRight: 24,
   },
   userSummaryAvatarRoleProfile: {
-    marginBottom: 24
+    marginBottom: 24,
   },
   userSummaryInfo: {
-    paddingRight: 24
+    paddingRight: 24,
   },
   userSummaryAvatarImage: {
     borderWidth: 1,
-    borderColor: 'transparent'
+    borderColor: 'transparent',
   },
   userSummaryTitle: {
     fontFamily: 'Montserrat-Regular',
@@ -533,23 +523,23 @@ const userSummary = {
     lineHeight: normalize(14),
     fontWeight: '400',
     color: '#4c4c4c',
-    textAlign: 'center'
+    textAlign: 'center',
   },
   userSummaryTitleRoleRota: {
     fontSize: normalize(16),
     lineHeight: normalize(16),
-    textAlign: 'left'
+    textAlign: 'left',
   },
   userSummaryTitleRoleAddShift: {
     fontSize: normalize(18),
     lineHeight: normalize(18),
-    textAlign: 'left'
+    textAlign: 'left',
   },
   userSummaryTitleRoleProfile: {
     fontSize: normalize(24),
-    lineHeight: normalize(24)
+    lineHeight: normalize(24),
   },
-}
+};
 
 const InfoCardStyles = {
   infoCard: {
@@ -564,22 +554,22 @@ const InfoCardStyles = {
     },
     shadowOpacity: 0.3,
     shadowRadius: 4,
-    elevation: 2
+    elevation: 2,
   },
   infoCardStatusPending: {
-    borderLeftColor: '#aaaaaa'
+    borderLeftColor: '#aaaaaa',
   },
   infoCardStatusReceived: {
-    borderLeftColor: '#86dd75'
+    borderLeftColor: '#86dd75',
   },
   infoCardStateAlert: {
-    backgroundColor: '#feeeee'
+    backgroundColor: '#feeeee',
   },
   infoCardInner: {
-    padding: 8
+    padding: 8,
   },
   infoCardInnerTablet: {
-    padding: 16
+    padding: 16,
   },
   infoCardTitle: {
     marginBottom: 12,
@@ -587,91 +577,90 @@ const InfoCardStyles = {
     fontSize: normalize(16),
     lineHeight: normalize(16),
     fontWeight: '600',
-    color: '#4c4c4c'
+    color: '#4c4c4c',
   },
   infoCardTitleTablet: {
     fontSize: normalize(20),
-    lineHeight: normalize(20)
+    lineHeight: normalize(20),
   },
   infoCardTitleStatusPending: {
-    color: '#aaaaaa'
+    color: '#aaaaaa',
   },
   infoCardTitleStatusReceived: {
-    color: '#86dd75'
+    color: '#86dd75',
   },
   infoCardRecord: {
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   infoCardRecordMobilePortrait: {
     flexDirection: 'column',
     justifyContent: 'flex-start',
-    alignItems: 'stretch'
+    alignItems: 'stretch',
   },
   infoCardRecordText: {
     flexDirection: 'row',
     justifyContent: 'flex-start',
     alignItems: 'center',
-    flexWrap: 'wrap'
+    flexWrap: 'wrap',
   },
   infoCardRecordTextMobilePortrait: {
-    flex: 1
+    flex: 1,
   },
   infoCardRecordActions: {
+    padding: 5,
     flexDirection: 'row',
     justifyContent: 'flex-end',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   infoCardRecordActionsMobilePortrait: {
     flex: 1,
-    marginTop: 12
+    marginTop: 12,
   },
   infoCardText: {
     fontFamily: 'Montserrat-Regular',
     fontSize: normalize(14),
     lineHeight: normalize(18),
     fontWeight: '400',
-    color: '#4c4c4c'
+    color: '#4c4c4c',
   },
   infoCardTextTablet: {
     fontSize: normalize(18),
-    lineHeight: normalize(18)
+    lineHeight: normalize(18),
   },
   infoCardTextPrimary: {
     fontFamily: 'Montserrat-SemiBold',
-    fontWeight: '600'
-
+    fontWeight: '600',
   },
   infoCardTextSecondary: {
     fontFamily: 'Montserrat-Light',
-    fontWeight: '300'
-
+    fontWeight: '300',
   },
   infoCardTextAdjustRow: {
-    marginRight: 20
-  }
-}
+    marginRight: 20,
+  },
+};
 
 const ModalStyles = {
   modalPortal: {
     flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.5)'
+    backgroundColor: 'rgba(0,0,0,0.5)',
   },
   modalPortalScroll: {
-    flex: 1
+    flex: 1,
   },
   modalContent: {
     position: 'relative',
     margin: 32,
-    padding: 12
+    padding: 12,
   },
   modalClose: {
     position: 'absolute',
     zIndex: 1000,
     top: 0,
-    right: 0
+    right: 0,
   },
   modalCloseInner: {
     justifyContent: 'center',
@@ -689,13 +678,13 @@ const ModalStyles = {
     },
     shadowOpacity: 0.4,
     shadowRadius: 4,
-    elevation: 4
+    elevation: 4,
   },
   modalCloseIcon: {
     fontFamily: 'icons',
     fontSize: 16,
     lineHeight: 16,
-    color: '#4c4c4c'
+    color: '#4c4c4c',
   },
   modalWindow: {
     position: 'relative',
@@ -703,33 +692,33 @@ const ModalStyles = {
     overflow: 'hidden',
     width: 450,
     backgroundColor: '#ffffff',
-    borderWidth: 1,
+    // borderWidth: 1,
     borderColor: 'transparent',
-    borderRadius: 4
+    borderRadius: 4,
   },
   modalWindowMobilePortrait: {
-    width: 300
+    width: 300,
   },
   modalWindowHeader: {
     padding: 16,
-    backgroundColor: '#f0f0f0'
+    backgroundColor: '#f0f0f0',
   },
   modalWindowHeaderRoleAlert: {
-    backgroundColor: '#ed7f7e'
+    backgroundColor: '#ed7f7e',
   },
   modalWindowHeaderRoleWarning: {
-    backgroundColor: '#f4a84f'
+    backgroundColor: '#f4a84f',
   },
   modalWindowHeaderRoleSuccess: {
-    backgroundColor: '#86dd75'
+    backgroundColor: '#86dd75',
   },
   modalWindowHeaderRoleInfo: {
-    backgroundColor: '#84bef0'
+    backgroundColor: '#84bef0',
   },
   modalWindowContent: {
     paddingHorizontal: 16,
     paddingVertical: 24,
-    backgroundColor: '#ffffff'
+    backgroundColor: '#ffffff',
   },
   modalWindowTitle: {
     fontFamily: 'Montserrat-Regular',
@@ -737,16 +726,16 @@ const ModalStyles = {
     lineHeight: normalize(16),
     fontWeight: '400',
     color: '#4c4c4c',
-    textAlign: 'center'
+    textAlign: 'center',
   },
   modalWindowTitleTablet: {
     fontSize: normalize(18),
     lineHeight: normalize(18),
   },
   modalWindowTitleThemeLight: {
-    color: '#ffffff'
-  }
-}
+    color: '#ffffff',
+  },
+};
 
 // Content Blocks
 const SplashScreen = {
@@ -754,17 +743,16 @@ const SplashScreen = {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#808080'
+    backgroundColor: '#808080',
   },
   splashScreenSecurityApp: {
-    backgroundColor: '#84bef0'
+    backgroundColor: '#84bef0',
   },
   splashScreenStaffApp: {
-    backgroundColor: '#ff3334'
+    backgroundColor: '#ff3334',
   },
-  splashScreenImage: {
-  }
-}
+  splashScreenImage: {},
+};
 const DotNavStyles = {
   dotNav: {
     flexDirection: 'row',
@@ -772,15 +760,14 @@ const DotNavStyles = {
     alignItems: 'center',
     backgroundColor: '#ffffff',
     borderTopWidth: 3,
-    borderTopColor: '#f0f0f0'
+    borderTopColor: '#f0f0f0',
   },
-  dotNavAction: {
-  },
+  dotNavAction: {},
   dotNavActionContent: {
     marginLeft: 4,
     marginRight: 4,
     paddingVertical: 16,
-    paddingHorizontal: 8
+    paddingHorizontal: 8,
   },
   dotNavDot: {
     width: 16,
@@ -789,13 +776,13 @@ const DotNavStyles = {
     borderRadius: 8,
     borderWidth: 2,
     borderColor: '#aaaaaa',
-    backgroundColor: 'transparent'
+    backgroundColor: 'transparent',
   },
   dotNavDotStateActive: {
     marginHorizontal: 8,
-    backgroundColor: '#aaaaaa'
-  }
-}
+    backgroundColor: '#aaaaaa',
+  },
+};
 
 const TabNavStyles = {
   tabNav: {
@@ -804,36 +791,36 @@ const TabNavStyles = {
     alignItems: 'center',
     backgroundColor: '#ffffff',
     borderTopWidth: 3,
-    borderTopColor: '#f0f0f0'
+    borderTopColor: '#f0f0f0',
   },
   tabNavAction: {
     flex: 1,
-    opacity: 0.5
+    opacity: 0.5,
   },
   tabNavActionStateActive: {
-    opacity: 1
+    opacity: 1,
   },
   tabNavActionContent: {
     justifyContent: 'center',
     alignItems: 'center',
     paddingTop: 16,
     paddingBottom: 8,
-    paddingHorizontal: 8
+    paddingHorizontal: 8,
   },
   tabNavDivider: {
     width: 1,
     height: 32,
-    backgroundColor: '#d8d8d8'
+    backgroundColor: '#d8d8d8',
   },
   tabNavIcon: {
     fontFamily: 'icons',
     fontSize: normalize(16),
-    lineHeight:  normalize(16),
-    marginBottom: 8
+    lineHeight: normalize(16),
+    marginBottom: 8,
   },
   tabNavIconTablet: {
     fontSize: normalize(18),
-    lineHeight: normalize(18)
+    lineHeight: normalize(18),
   },
   tabNavLabel: {
     fontFamily: 'Montserrat-Regular',
@@ -841,27 +828,26 @@ const TabNavStyles = {
     lineHeight: normalize(10),
     fontWeight: '400',
     color: '#4c4c4c',
-    textAlign: 'center'
+    textAlign: 'center',
   },
   tabNavLabelTablet: {
     fontSize: normalize(12),
-    lineHeight: normalize(12)
-  }
-}
+    lineHeight: normalize(12),
+  },
+};
 
 const InfoListStyles = {
-  infoList: {
-  },
+  infoList: {},
   infoListItem: {
     marginBottom: 16,
     paddingBottom: 8,
     borderBottomWidth: 1,
-    borderColor: '#f0f0f0'
+    borderColor: '#f0f0f0',
   },
   infoListItemLast: {
     marginBottom: 0,
     borderWidth: 0,
-    borderColor: 'transparent'
+    borderColor: 'transparent',
   },
   infoListLabel: {
     marginBottom: 8,
@@ -870,39 +856,37 @@ const InfoListStyles = {
     lineHeight: normalize(10),
     fontWeight: '400',
     color: '#aaaaaa',
-    textAlign: 'left'
+    textAlign: 'left',
   },
   infoListLabelTablet: {
     fontSize: normalize(12),
-    lineHeight: normalize(12)
+    lineHeight: normalize(12),
   },
-  infoListData: {
-  },
+  infoListData: {},
   infoListText: {
     fontFamily: 'Montserrat-Regular',
     fontSize: normalize(14),
     lineHeight: normalize(14),
     fontWeight: '400',
     color: '#4c4c4c',
-    textAlign: 'left'
+    textAlign: 'left',
   },
   infoListTextTablet: {
     fontSize: normalize(16),
-    lineHeight: normalize(16)
+    lineHeight: normalize(16),
   },
   infoListTextLine: {
-    marginBottom: 4
-  }
-}
+    marginBottom: 4,
+  },
+};
 
 const ShiftsStyles = {
-  shifts: {
-  },
+  shifts: {},
   shiftsGroup: {
-    marginBottom: 24
+    marginBottom: 24,
   },
   shiftsGroupHeader: {
-    marginBottom: 16
+    marginBottom: 16,
   },
   shiftsGroupTitle: {
     fontFamily: 'Montserrat-Regular',
@@ -910,19 +894,19 @@ const ShiftsStyles = {
     lineHeight: normalize(18),
     fontWeight: '400',
     color: '#808080',
-    textAlign: 'center'
+    textAlign: 'center',
   },
   shiftsGroupTitleTablet: {
     fontSize: normalize(20),
-    lineHeight: normalize(20)
+    lineHeight: normalize(20),
   },
   shiftsItem: {
     position: 'relative',
     paddingLeft: 24,
-    marginBottom: 16
+    marginBottom: 16,
   },
   shiftsItemLast: {
-    marginBottom: 0
+    marginBottom: 0,
   },
   shiftsItemIcon: {
     position: 'absolute',
@@ -933,7 +917,7 @@ const ShiftsStyles = {
     fontFamily: 'icons',
     fontSize: 14,
     lineHeight: 14,
-    color: '#0f487a'
+    color: '#0f487a',
   },
   shiftsItemIconTablet: {
     top: 16,
@@ -947,7 +931,7 @@ const ShiftsStyles = {
     bottom: -22,
     left: 6,
     width: 1,
-    backgroundColor: '#808080'
+    backgroundColor: '#808080',
   },
   shiftsItemLineTablet: {
     top: 36,
@@ -955,12 +939,12 @@ const ShiftsStyles = {
     left: 7,
   },
   shiftsItemContent: {
-    flex:1,
+    flex: 1,
     padding: 8,
     borderWidth: 1,
     backgroundColor: '#ffffff',
     borderColor: '#84bef0',
-    borderRadius: 4
+    borderRadius: 4,
   },
   shiftsItemContentTablet: {
     padding: 16,
@@ -971,39 +955,39 @@ const ShiftsStyles = {
     fontSize: normalize(14),
     lineHeight: normalize(14),
     fontWeight: '600',
-    color: '#4c4c4c'
+    color: '#4c4c4c',
   },
   shiftsItemTimeTablet: {
     fontSize: normalize(18),
-    lineHeight: normalize(18)
+    lineHeight: normalize(18),
   },
   shiftsItemVenue: {
-    flexDirection: 'row'
+    flexDirection: 'row',
   },
   shiftsItemVenueIcon: {
     marginRight: 8,
     fontFamily: 'icons',
     fontSize: normalize(12),
     lineHeight: normalize(12),
-    color: '#808080'
+    color: '#808080',
   },
   shiftsItemVenueIconTablet: {
     fontSize: normalize(14),
-    lineHeight: normalize(14)
+    lineHeight: normalize(14),
   },
   shiftsItemVenueName: {
     fontFamily: 'Montserrat-Regular',
     fontSize: normalize(14),
     lineHeight: normalize(14),
     fontWeight: '400',
-    color: '#808080'
+    color: '#808080',
   },
   shiftsItemVenueNameTablet: {
     fontSize: normalize(16),
-    lineHeight: normalize(16)
+    lineHeight: normalize(16),
   },
   shiftsActions: {
-    alignItems: 'center'
+    alignItems: 'center',
   },
   shiftsTextPlaceholder: {
     fontFamily: 'Montserrat-Regular',
@@ -1011,30 +995,30 @@ const ShiftsStyles = {
     lineHeight: normalize(16),
     fontWeight: '400',
     color: '#808080',
-    textAlign: 'center'
+    textAlign: 'center',
   },
   shiftsTextPlaceholderTablet: {
     fontSize: normalize(18),
-    lineHeight: normalize(18)
-  }
-}
+    lineHeight: normalize(18),
+  },
+};
 
 const PaymentsStyles = {
-  payments: {
-  },
+  payments: {},
   paymentsList: {
-    marginBottom: 24
+    // marginBottom: 24,
   },
   paymentsItem: {
-    marginBottom: 16
+    marginBottom: 16,
+    marginHorizontal: 16,
   },
   paymentsItemLast: {
-    marginBottom: 0
+    marginBottom: 0,
   },
   paymentsActions: {
-    alignItems: 'center'
-  }
-}
+    alignItems: 'center',
+  },
+};
 
 module.exports = StyleSheet.create({
   // Layout Blocks
@@ -1062,5 +1046,5 @@ module.exports = StyleSheet.create({
   ...DotNavStyles,
   ...TabNavStyles,
   ...InfoListStyles,
-  ...ShiftsStyles
+  ...ShiftsStyles,
 });

@@ -19,6 +19,7 @@ module.exports = {
   ],
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    "arrow-body-style" : "warn"
+    "arrow-body-style" : "warn",
+    "class-methods-use-this": 0,
   }
 };
