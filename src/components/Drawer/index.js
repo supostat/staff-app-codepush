@@ -75,7 +75,6 @@ class SecureApp extends React.Component {
       .then((ablyService) => {
         this.ablyService = ablyService;
         this.ablyService.subscribeToPersonalChannel((message) => {
-          console.log('message: ', message);
           this.props.updateData(message.data);
         });
       })
