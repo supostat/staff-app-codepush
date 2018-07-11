@@ -10,6 +10,8 @@ export const acceptPayment = params => (dispatch, getState) => {
   const password = oFetch(params, 'password');
   const paymentId = oFetch(params, 'paymentId');
 
-  return acceptPaymentRequest({ paymentId, password }).then(() =>
-    dispatch(acceptPaymentSuccess({ paymentId })));
+  return acceptPaymentRequest({ paymentId, password }).then((response) => {
+    const payment = oFetch(response, 'data.payment');
+    return dispatch(acceptPaymentSuccess({ payment }));
+  });
 };

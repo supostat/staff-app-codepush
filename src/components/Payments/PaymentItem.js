@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
+import Humanize from 'humanize-plus';
 import styles from './styles';
+
+const PAYMENT_PENDING_STATUS = 'pending';
+const PAYMENT_RECEIVED_STATUS = 'received';
 
 class PaymentItem extends Component {
   render() {
@@ -10,19 +14,19 @@ class PaymentItem extends Component {
           style={[
             styles.infoCard,
             this.props.alert && styles.infoCardStateAlert,
-            this.props.status === 'Pending' && styles.infoCardStatusPending,
-            this.props.status === 'Received' && styles.infoCardStatusReceived,
+            this.props.status === PAYMENT_PENDING_STATUS && styles.infoCardStatusPending,
+            this.props.status === PAYMENT_RECEIVED_STATUS && styles.infoCardStatusReceived,
           ]}
         >
           <View style={[styles.infoCardInner]}>
             <Text
               style={[
                 styles.infoCardTitle,
-                this.props.status === 'Pending' && styles.infoCardTitleStatusPending,
-                this.props.status === 'Received' && styles.infoCardTitleStatusReceived,
+                this.props.status === PAYMENT_PENDING_STATUS && styles.infoCardTitleStatusPending,
+                this.props.status === PAYMENT_RECEIVED_STATUS && styles.infoCardTitleStatusReceived,
               ]}
             >
-              {this.props.status}
+              {Humanize.capitalize(this.props.status)}
             </Text>
             <View style={[styles.infoCardRecord]}>
               <View style={[styles.infoCardRecordText]}>
@@ -40,7 +44,7 @@ class PaymentItem extends Component {
                 </Text>
               </View>
             </View>
-            {this.props.status === 'Pending' && (
+            {this.props.status === PAYMENT_PENDING_STATUS && (
               <View style={[styles.infoCardRecordActions]}>
                 <View style={styles.button}>
                   <TouchableOpacity onPress={() => this.props.onPressItem(this.props.id)}>

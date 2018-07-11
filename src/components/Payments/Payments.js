@@ -3,12 +3,9 @@ import {
   View,
   Text,
   SafeAreaView,
-  Image,
-  SectionList,
   TouchableOpacity,
   ScrollView,
   Modal,
-  TextInput,
   FlatList,
 } from 'react-native';
 

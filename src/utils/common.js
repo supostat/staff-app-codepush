@@ -2,6 +2,33 @@ import _ from 'lodash';
 import moment from 'moment';
 import { FORM_ERROR } from 'final-form';
 import safeMoment from '../services/safeMoment';
+import numeral from 'numeral';
+
+numeral.register('locale', 'en-gb', {
+  delimiters: {
+    thousands: ',',
+    decimal: '.',
+  },
+  abbreviations: {
+    thousand: 'k',
+    million: 'm',
+    billion: 'b',
+    trillion: 't',
+  },
+  ordinal(number) {
+    const b = number % 10;
+    return ~~((number % 100) / 10) === 1 ? 'th' : b === 1 ? 'st' : b === 2 ? 'nd' : b === 3 ? 'rd' : 'th';
+  },
+  currency: {
+    symbol: '£',
+  },
+});
+
+numeral.locale('en-gb');
+
+export function moneyFormat(amount) {
+  return numeral(amount).format('$0,0.00');
+}
 
 export function normalizeArray(array, key = 'id') {
   return array.reduce(

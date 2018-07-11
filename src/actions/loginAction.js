@@ -5,16 +5,12 @@ import {
   init,
 } from '../services/loginService';
 
-import {
-  createAblyService,
-} from '../services/ablyService';
+import { createAblyService } from '../services/ablyService';
 
 import {
   startSpinner,
   stopSpinner,
 } from './commonAction';
-
-import { payments } from '../fixtures'; // BACKEND INTEGRATION NEEDED
 
 import AsyncStorageUtil from '../utils/AsyncStorageUtil';
 import * as CONST from '../utils/constants';
@@ -47,39 +43,35 @@ export function saveExpireDate(expiresAt) {
   AsyncStorageUtil.setAsyncStorage(CONST.TOKEN_EXPIRE_DATE, expiresAt);
 }
 
-export const reloadShiftData = () => (dispatch) => {
-  return init().then((response) => {
-    dispatch({
-      type: INIT_SUCCESS,
-      payload: response.data,
-    });
-    return response;
-  }).catch((error) => {
-    dispatch({
-      type: INIT_FAILED,
-      payload: error.response.data,
-    });
-    return Promise.reject(error);
+export const reloadShiftData = () => dispatch => init().then((response) => {
+  dispatch({
+    type: INIT_SUCCESS,
+    payload: response.data,
   });
-};
+  return response;
+}).catch((error) => {
+  dispatch({
+    type: INIT_FAILED,
+    payload: error.response.data,
+  });
+  return Promise.reject(error);
+});
 
-export const initAct = () => (dispatch, getState) => {
-  return init().then((response) => {
-    dispatch({
-      type: INIT_SUCCESS,
-      payload: { payments, ...response.data }, // BACKEND INTEGRATION NEEDED
-    });
-    dispatch(stopSpinner());
-    return response;
-  }).catch((error) => {
-    dispatch(stopSpinner());
-    dispatch({
-      type: INIT_FAILED,
-      payload: error.response.data,
-    });
-    return Promise.reject(error);
+export const initAct = () => (dispatch, getState) => init().then((response) => {
+  dispatch({
+    type: INIT_SUCCESS,
+    payload: response.data,
   });
-};
+  dispatch(stopSpinner());
+  return response;
+}).catch((error) => {
+  dispatch(stopSpinner());
+  dispatch({
+    type: INIT_FAILED,
+    payload: error.response.data,
+  });
+  return Promise.reject(error);
+});
 
 export const logoutAction = () => async (dispatch) => {
   dispatch(startSpinner());
@@ -104,13 +96,11 @@ export const initAblyService = data => (dispatch, getState) => {
 export const initializeApp = options => (dispatch) => {
   dispatch(startSpinner());
   return dispatch(initAct())
-    .then((initResponse) => {
-      return dispatch(initAblyService({ ...initResponse.data, ...options }))
-        .then((ablyService) => {
-          dispatch(stopSpinner());
-          return ablyService;
-        });
-    });
+    .then(initResponse => dispatch(initAblyService({ ...initResponse.data, ...options }))
+      .then((ablyService) => {
+        dispatch(stopSpinner());
+        return ablyService;
+      }));
 };
 
 export const loginAct = (email, password) => (dispatch) => {

@@ -9,7 +9,7 @@ class PaymentConfirmForm extends Component {
   onSubmit = ({ password, paymentId }) =>
     this.props
       .acceptPayment({ password, paymentId })
-      .then(() => this.props.toggleSuccessModal())
+      .then(response => this.props.toggleSuccessModal())
       .catch(err => getFormErrors(err));
 
   render() {
