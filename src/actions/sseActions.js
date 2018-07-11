@@ -4,6 +4,7 @@ import oFetch from 'o-fetch';
 export const UPDATE_SHIFTS = 'UPDATE_SHIFTS';
 export const UPDATE_PROFILES = 'UPDATE_PROFILES';
 export const UPDATE_VENUES = 'UPDATE_VENUES';
+export const UPDATE_PAYMENTS = 'UPDATE_PAYMENTS';
 export const DELETE_SHIFTS = 'DELETE_SHIFTS';
 export const DELETE_PROFILES = 'DELETE_PROFILES';
 export const DELETE_VENUES = 'DELETE_VENUES';
@@ -11,6 +12,7 @@ export const DELETE_VENUES = 'DELETE_VENUES';
 export const updateShifts = createAction(UPDATE_SHIFTS);
 export const updateProfiles = createAction(UPDATE_PROFILES);
 export const updateVenues = createAction(UPDATE_VENUES);
+export const updatePayments = createAction(UPDATE_PAYMENTS);
 export const deleteProfiles = createAction(DELETE_PROFILES);
 export const deleteShifts = createAction(DELETE_SHIFTS);
 export const deleteVenues = createAction(DELETE_VENUES);
@@ -27,6 +29,10 @@ const shiftPageDeleteActions = {
 const shiftPageUpdateActions = {
   rotaShifts: (data, dispatch) => dispatch(updateShifts(data)),
   venues: (data, dispatch) => dispatch(updateVenues(data)),
+};
+
+const paymentPageUpdateActions = {
+  payments: (data, dispatch) => dispatch(updatePayments(data)),
 };
 
 const profilePageUpdateActions = {
@@ -46,8 +52,10 @@ export const updateDataAction = data => (dispatch) => {
   const shiftsPageDeletes = oFetch(data, 'shiftsPage.deletes');
   const profilePageUpdates = oFetch(data, 'profilePage.updates');
   const profilePageDeletes = oFetch(data, 'profilePage.deletes');
+  const paymentPageUpdates = oFetch(data, 'paymentsPage.updates');
   mapActions(shiftsPageUpdates, shiftPageUpdateActions, dispatch);
   mapActions(profilePageUpdates, profilePageUpdateActions, dispatch);
   mapActions(shiftsPageDeletes, shiftPageDeleteActions, dispatch);
   mapActions(profilePageDeletes, profilePageDeleteActions, dispatch);
+  mapActions(paymentPageUpdates, paymentPageUpdateActions, dispatch);
 };

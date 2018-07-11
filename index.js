@@ -10,9 +10,6 @@ import configureStore from './src/configureStore';
 import App from './App';
 import Spinner from './src/components/Loader';
 import SomethingWentWrong from './src/components/SomethingWentWrong';
-import NoInternetPage from './src/components/NoInternet';
-
-import AppManager from './src/utils/AppManager';
 
 export default class BossStaffApp extends Component {
   constructor(props) {

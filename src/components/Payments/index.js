@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Payments from './Payments';
+import { acceptPayment } from '../../actions/paymentActions';
+import { getPayments } from '../../selectors';
 
 function mapStateToProps(state) {
-  return {};
+  return {
+    payments: getPayments(state),
+  };
 }
 
-function mapDispatchToProps(dispatch) {
-  return {};
-}
+const mapDispatchToProps = {
+  acceptPayment,
+};
+
 export default connect(mapStateToProps, mapDispatchToProps)(props => (
   <Payments {...props} />
 ));

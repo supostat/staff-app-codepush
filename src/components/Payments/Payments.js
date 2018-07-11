@@ -3,12 +3,9 @@ import {
   View,
   Text,
   SafeAreaView,
-  Image,
-  SectionList,
   TouchableOpacity,
   ScrollView,
   Modal,
-  TextInput,
   FlatList,
 } from 'react-native';
 
@@ -16,77 +13,38 @@ import deviceInfo from '../../utils/deviceInfo';
 import { NavScreen } from '../NavBar/TopNavScreen';
 import styles from './styles';
 import PaymentItem from './PaymentItem';
-
-const arr = [{}];
-
-const payments = [
-  {
-    id: 1,
-    alert: false,
-    status: 'Pending',
-    amount: '£23.34',
-    date: '20/12/2015 - 27/12/2015',
-  },
-  {
-    id: 2,
-    alert: false,
-    status: 'Received',
-    amount: '£33.00',
-    date: '12/12/2015 - 19/12/2015',
-  },
-  {
-    id: 3,
-    alert: false,
-    status: 'Received',
-    amount: '£25.74',
-    date: '04/12/2015 - 11/12/2015',
-  },
-  {
-    id: 4,
-    alert: false,
-    status: 'Received',
-    amount: '£30.17',
-    date: '26/11/2015 - 03/12/2015',
-  },
-  {
-    id: 5,
-    alert: true,
-    status: 'Pending',
-    amount: '£23.34',
-    date: '18/11/2015 - 25/11/2015',
-  },
-];
+import PaymentConfirmationModal from './PaymentConfirmationModal';
 
 class Payments extends Component {
   state = {
     screen: {
-      isPortrait: deviceInfo.isPortrait() ? true : false,
-      isLandscape: deviceInfo.isLandscape() ? true : false,
-      isMobile: deviceInfo.isMobile() ? true : false,
-      isTablet: deviceInfo.isTablet() ? true : false,
+      isPortrait: !!deviceInfo.isPortrait(),
+      isLandscape: !!deviceInfo.isLandscape(),
+      isMobile: !!deviceInfo.isMobile(),
+      isTablet: !!deviceInfo.isTablet(),
     },
     isConfirmModalVisible: false,
     isSuccessModalVisible: false,
+    currentPaymentId: null,
   };
 
   _keyExtractor = (item, index) => item.id.toString();
 
-  _renderItem = ({ item }) => {
-    return (
+  _renderItem = ({ item }) => (
       <PaymentItem
         id={item.id}
-        onPressItem={this._onPressItem}
+        onPressItem={this.toggleConfirmModal}
         amount={item.amount}
         alert={item.alert}
         date={item.date}
         status={item.status}
       />
-    );
-  };
+  );
 
-  toggleConfirmModal = () => {
+  toggleConfirmModal = (paymentId) => {
     this.setState(state => ({
       isConfirmModalVisible: !state.isConfirmModalVisible,
+      currentPaymentId: paymentId,
     }));
   };
 
@@ -98,16 +56,17 @@ class Payments extends Component {
   };
 
   render() {
+    const { onLogout } = this.props.screenProps;
     return (
       <SafeAreaView style={{ flex: 1, backgroundColor: '#ffffff' }}>
         <View style={styles.main}>
-          <NavScreen banner="Payments" navigation={this.props.navigation} />
+          <NavScreen banner="Payments" navigation={this.props.navigation} onLogout={onLogout} />
           <View style={styles.mainContent}>
             <View style={styles.mainContentInner}>
               <View style={styles.payments}>
                 <View style={styles.paymentsList}>
                   <FlatList
-                    data={payments}
+                    data={this.props.payments}
                     keyExtractor={this._keyExtractor}
                     renderItem={this._renderItem}
                   />
@@ -117,6 +76,13 @@ class Payments extends Component {
           </View>
         </View>
 
+        <PaymentConfirmationModal
+          visible={this.state.isConfirmModalVisible}
+          toggleModal={this.toggleConfirmModal}
+          acceptPayment={this.props.acceptPayment}
+          paymentId={this.state.currentPaymentId}
+          toggleSuccessModal={this.toggleSuccessModal}
+        />
 
         <Modal
           visible={this.state.isSuccessModalVisible}
@@ -156,18 +122,12 @@ class Payments extends Component {
                       styles.modalWindowMobilePortrait,
                   ]}
                 >
-                  <View
-                    style={[
-                      styles.modalWindowHeader,
-                      styles.modalWindowHeaderRoleSuccess,
-                    ]}
-                  >
+                  <View style={[styles.modalWindowHeader, styles.modalWindowHeaderRoleSuccess]}>
                     <Text
                       style={[
                         styles.modalWindowTitle,
                         styles.modalWindowTitleThemeLight,
-                        this.state.screen.isTablet &&
-                          styles.modalWindowTitleTablet,
+                        this.state.screen.isTablet && styles.modalWindowTitleTablet,
                       ]}
                     >
                       Success!
@@ -179,20 +139,16 @@ class Payments extends Component {
                         <View
                           style={[
                             styles.note,
-                            !(
-                              this.state.screen.isMobile &&
-                              this.state.screen.isLandscape
-                            ) && styles.noteLayoutColumn,
+                            !(this.state.screen.isMobile && this.state.screen.isLandscape) &&
+                              styles.noteLayoutColumn,
                           ]}
                         >
                           <Text
                             style={[
                               styles.noteIcon,
                               styles.noteIconRoleSuccess,
-                              !(
-                                this.state.screen.isMobile &&
-                                this.state.screen.isLandscape
-                              ) && styles.noteIconLayoutColumn,
+                              !(this.state.screen.isMobile && this.state.screen.isLandscape) &&
+                                styles.noteIconLayoutColumn,
                             ]}
                           >
                             &#xe902;
@@ -201,19 +157,13 @@ class Payments extends Component {
                             <Text
                               style={[
                                 styles.noteText,
-                                this.state.screen.isTablet &&
-                                  styles.noteTextTablet,
-                                !(
-                                  this.state.screen.isMobile &&
-                                  this.state.screen.isLandscape
-                                ) && styles.noteTextLayoutColumn,
+                                this.state.screen.isTablet && styles.noteTextTablet,
+                                !(this.state.screen.isMobile && this.state.screen.isLandscape) &&
+                                  styles.noteTextLayoutColumn,
                               ]}
                             >
                               Payment {'\n'}
-                              <Text style={styles.noteTextMarked}>
-                                £23.34
-                              </Text>{' '}
-                              {'\n'}
+                              <Text style={styles.noteTextMarked}>£23.34</Text> {'\n'}
                               <Text style={styles.noteTextMarked}>
                                 20/12/2015 - 27/12/2015
                               </Text>{' '}
@@ -224,21 +174,9 @@ class Payments extends Component {
                       </View>
                       <View style={styles.serviceActions}>
                         <View style={styles.button}>
-                          <TouchableOpacity
-                            onPress={() => this.toggleSuccessModal()}
-                          >
-                            <View
-                              style={[
-                                styles.buttonContent,
-                                styles.buttonContentThemeBlue,
-                              ]}
-                            >
-                              <Text
-                                style={[
-                                  styles.buttonText,
-                                  styles.buttonTextThemeLight,
-                                ]}
-                              >
+                          <TouchableOpacity onPress={() => this.toggleSuccessModal()}>
+                            <View style={[styles.buttonContent, styles.buttonContentThemeBlue]}>
+                              <Text style={[styles.buttonText, styles.buttonTextThemeLight]}>
                                 Dismiss
                               </Text>
                             </View>
