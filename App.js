@@ -27,7 +27,7 @@ class App extends React.Component {
   render() {
     const { isDownloading, progress } = this.props;
     const { checkedSignIn, signedIn } = this.state;
-    if (isDownloading) {
+    if (isDownloading && progress) {
       return <Progress progress={progress} />;
     }
     if (!checkedSignIn) {
