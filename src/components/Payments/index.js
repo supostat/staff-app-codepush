@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Payments from './Payments';
 import { acceptPayment } from '../../actions/paymentActions';
+import { reloadShiftData } from '../../actions/loginAction';
 import { getPayments } from '../../selectors';
 
 function mapStateToProps(state) {
@@ -12,8 +12,7 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = {
   acceptPayment,
+  reloadShiftData,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(props => (
-  <Payments {...props} />
-));
+export default connect(mapStateToProps, mapDispatchToProps)(Payments);

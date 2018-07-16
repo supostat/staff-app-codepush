@@ -21,6 +21,7 @@ const MainStyles = {
     flex: 1,
   },
   mainContentInner: {
+    flex: 1,
     paddingVertical: 24,
     // paddingHorizontal: 16,
   },
@@ -1004,9 +1005,11 @@ const ShiftsStyles = {
 };
 
 const PaymentsStyles = {
-  payments: {},
+  payments: {
+    flex: 1,
+  },
   paymentsList: {
-    // marginBottom: 24,
+    flex: 1,
   },
   paymentsItem: {
     marginBottom: 16,
