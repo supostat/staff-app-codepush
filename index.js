@@ -5,7 +5,6 @@ import { setJSExceptionHandler } from 'react-native-exception-handler';
 import { withNetworkConnectivity } from 'react-native-offline';
 import SplashScreen from 'react-native-splash-screen';
 
-import './src/ReactotronConfig';
 import configureStore from './src/configureStore';
 import App from './App';
 import Spinner from './src/components/Loader';
