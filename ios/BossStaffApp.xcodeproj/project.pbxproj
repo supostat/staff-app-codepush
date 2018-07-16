@@ -81,7 +81,7 @@
 		E9891CCB4A6E40D3983BAFF9 /* libRCTOrientation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ABA8563E7CF4D2693B58CFC /* libRCTOrientation.a */; };
 		F1C111E97E864D1E9E75D678 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9A792B52FAA14EBBA6547ACA /* Zocial.ttf */; };
 		F3D7FF9CACA84322ACA40896 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 238821972C9649B8856CBA35 /* Entypo.ttf */; };
-		F528FF3120C6B4E500F1BBD9 /* libART.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F528FF2E20C6B4C300F1BBD9 /* libART.a */; };
+		F5DC62BF20FC9F0F0059E1F2 /* libART.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F528FF2E20C6B4C300F1BBD9 /* libART.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -562,7 +562,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F528FF3120C6B4E500F1BBD9 /* libART.a in Frameworks */,
+				F5DC62BF20FC9F0F0059E1F2 /* libART.a in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
@@ -1848,6 +1848,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.pubinvestgroup.BossStaffApp;
 				PRODUCT_NAME = BossStaffApp;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1881,6 +1882,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.pubinvestgroup.BossStaffApp;
 				PRODUCT_NAME = BossStaffApp;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
