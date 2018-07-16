@@ -14,6 +14,7 @@ import { NavScreen } from '../NavBar/TopNavScreen';
 import styles from './styles';
 import PaymentItem from './PaymentItem';
 import PaymentConfirmationModal from './PaymentConfirmationModal';
+import * as constants from '../../utils/constants';
 
 class Payments extends Component {
   state = {
@@ -26,6 +27,7 @@ class Payments extends Component {
     isConfirmModalVisible: false,
     isSuccessModalVisible: false,
     currentPaymentId: null,
+    refreshing: false,
   };
 
   _keyExtractor = (item, index) => item.id.toString();
@@ -55,6 +57,16 @@ class Payments extends Component {
     }));
   };
 
+  onRefreshList = () => {
+    this.setState({ refreshing: true });
+    return this.props.reloadShiftData().then(() => {
+      this.setState({ refreshing: false });
+    }).catch((error) => {
+      this.props.screenProps.onGetTokenFailed();
+      constants.BUGSNAG.notify(new Error(error));
+    });
+  }
+
   render() {
     const { onLogout } = this.props.screenProps;
     return (
@@ -64,13 +76,13 @@ class Payments extends Component {
           <View style={styles.mainContent}>
             <View style={styles.mainContentInner}>
               <View style={styles.payments}>
-                <View style={styles.paymentsList}>
                   <FlatList
                     data={this.props.payments}
                     keyExtractor={this._keyExtractor}
                     renderItem={this._renderItem}
+                    refreshing={this.state.refreshing}
+                    onRefresh={this.onRefreshList}
                   />
-                </View>
               </View>
             </View>
           </View>
