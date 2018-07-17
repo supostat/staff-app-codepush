@@ -9,7 +9,8 @@
     "build-android": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output ./bugsnag/android-release.bundle --sourcemap-output ./bugsnag/android-release.bundle.map",
     "sourcemap-ios": "node ./bugsnag/ios.js",
     "sourcemap-android": "node ./bugsnag/android.js",
-    "react-devtools": "react-devtools"
+    "react-devtools": "react-devtools",
+    "version": "node ./scripts/version.js"
   },
   "dependencies": {
     "ably-react-native": "^1.0.0",
@@ -65,6 +66,8 @@
     "eslint-plugin-react": "^7.7.0",
     "eslint-plugin-react-native": "^3.2.1",
     "jest": "22.4.3",
+    "node-cmd": "^3.0.0",
+    "plist": "^3.0.1",
     "react-devtools": "^3.2.1",
     "react-test-renderer": "^16.3.0-alpha.1"
   },
