@@ -68,11 +68,10 @@ class Payments extends Component {
   }
 
   render() {
-    const { onLogout } = this.props.screenProps;
     return (
       <SafeAreaView style={{ flex: 1, backgroundColor: '#ffffff' }}>
         <View style={styles.main}>
-          <NavScreen banner="Payments" navigation={this.props.navigation} onLogout={onLogout} />
+          <NavScreen banner="Payments" navigation={this.props.navigation} />
           <View style={styles.mainContent}>
             <View style={styles.mainContentInner}>
               <View style={styles.payments}>

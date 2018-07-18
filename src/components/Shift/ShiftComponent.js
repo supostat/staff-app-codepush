@@ -118,10 +118,9 @@ export default class ShiftComponent extends React.Component {
   }
 
   render() {
-    const { onLogout } = this.props.screenProps;
     return (
       <View style={styles.container}>
-        <NavScreen banner="Shifts" onLogout={onLogout} navigation={this.props.navigation} />
+        <NavScreen banner="Shifts" navigation={this.props.navigation} />
         <SectionList
             key="shifts"
             sections={this.state.rotaShiftArray}
