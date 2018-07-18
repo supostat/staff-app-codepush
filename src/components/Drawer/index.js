@@ -1,5 +1,5 @@
 import React from 'react';
-import { DrawerNavigator, NavigationActions, TabNavigator } from 'react-navigation';
+import { TabBarBottom, NavigationActions, TabNavigator } from 'react-navigation';
 import { connect } from 'react-redux';
 import { Alert, View } from 'react-native';
 import { ConnectivityRenderer } from 'react-native-offline';
@@ -45,6 +45,8 @@ const Drawer = TabNavigator(
     swipeEnabled: true,
     animationEnabled: true,
     lazy: true,
+    tabBarPosition: 'bottom',
+    tabBarComponent: TabBarBottom,
   },
 );
 
