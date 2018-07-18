@@ -125,7 +125,7 @@ class SecureApp extends React.Component {
     return (
       <ConnectivityRenderer
         pingServerUrl={`${this.props.currentUrl}/api/v1/version`}
-        timeout={10000}
+        timeout={20000}
       >
         {isConnected =>
           (isConnected ? (
