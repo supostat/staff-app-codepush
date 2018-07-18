@@ -8,29 +8,34 @@ import styles from './style';
 import { isValidURL } from '../../utils/common';
 
 function mapStaffMemberData(staffMember) {
-  const siaBadgeNumber = oFetch(staffMember, 'siaBadgeNumber');
-  const siaBadgeExpiryDate = oFetch(staffMember, 'siaBadgeExpiryDate');
-  const dateOfBirth = oFetch(staffMember, 'dateOfBirth');
+  const niNumber = oFetch(staffMember, 'niNumber');
+  const address = oFetch(staffMember, 'address');
+  const county = oFetch(staffMember, 'county');
+  const country = oFetch(staffMember, 'country');
   const phoneNumber = oFetch(staffMember, 'phoneNumber');
   const email = oFetch(staffMember, 'email');
-
   return [
-    { title: 'SIA badge number', text: siaBadgeNumber },
-    { title: 'SIA badge expiry date', text: siaBadgeExpiryDate },
-    { title: 'Date of birth', text: dateOfBirth },
-    { title: 'Phone number', text: phoneNumber },
     { title: 'Email address', text: email },
+    { title: 'Phone number', text: phoneNumber },
+    { title: 'NI number', text: niNumber },
+    { title: 'Address', text: [address, county, country] },
   ];
 }
 
 function ProfileItem({ title, text }) {
+  const renderText = text => {
+    return Array.isArray(text)
+      ? text.map((textItem, key) => <Text key={key.toString()} style={styles.profileListDetailTextPhone}>{textItem}</Text>)
+      : (<Text style={styles.profileListDetailTextPhone}>{text}</Text>)
+  }
+
   return (
-    <View style={styles.profileListView}>
+    <View style={[styles.profileListView, Array.isArray(text) && { height: 100 }]}>
       <View style={styles.profileListHeader}>
         <Text style={styles.profileListHeaderTextPhone}>{title}</Text>
       </View>
       <View style={styles.profileListDetail}>
-        <Text style={styles.profileListDetailTextPhone}>{text}</Text>
+        {renderText(text)}
       </View>
     </View>
   );
