@@ -48,6 +48,7 @@ function ProfileData({ staffMember }) {
 
 export default function ProfileComponent(props) {
   const staffMember = oFetch(props, 'staffMember');
+  const onLogout = oFetch(props, 'screenProps.onLogout');
   const {
     avatarImageUrl,
     firstName,
@@ -56,10 +57,10 @@ export default function ProfileComponent(props) {
 
   const avatarUrl = isValidURL(avatarImageUrl) ? avatarImageUrl : `${props.currentUrl}${avatarImageUrl}`;
   const fullName = `${firstName} ${surname}`;
-
+  
   return (
     <View style={{ flex: 1, backgroundColor: 'white' }}>
-      <NavScreen banner="My Profile" navigation={props.navigation} />
+      <NavScreen banner="My Profile" navigation={props.navigation} onLogout={onLogout} />
       <View style={{ alignItems: 'center', flex: 1 }}>
         <View style={styles.container}>
           <ScrollView
