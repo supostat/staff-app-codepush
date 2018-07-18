@@ -16,9 +16,14 @@ export const APP_TOUSE_CUSTOM_URL = 'APP_TOUSE_CUSTOM_URL';
 export const USER_PASSWORD = 'USER_PASSWORD';
 export const USER_LOGOUT_EVENT = 'USER_LOGOUT';
 
-export let BUGSNAG = new Client();
+const configuration = new Configuration();
+configuration.releaseStage = __DEV__ ? 'development' : 'production';
+configuration.notifyReleaseStages = ['production'];
+configuration.codeBundleId = require('../../package.json').version;
+
+export let BUGSNAG = new Client(configuration);
+
 export const applyBugsnagAdditionalData = (data) => {
-  const configuration = new Configuration();
   configuration.registerBeforeSendCallback((report, error) => {
     report.metadata = {
       ...report.metadata,
