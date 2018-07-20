@@ -1,5 +1,3 @@
-
-
 import React, { Component } from 'react';
 import { View, Text, ScrollView, Platform, Image } from 'react-native';
 import oFetch from 'o-fetch';
@@ -23,20 +21,27 @@ function mapStaffMemberData(staffMember) {
 }
 
 function ProfileItem({ title, text }) {
-  const renderText = text => {
-    return Array.isArray(text)
-      ? text.map((textItem, key) => <Text key={key.toString()} style={styles.profileListDetailTextPhone}>{textItem}</Text>)
-      : (<Text style={styles.profileListDetailTextPhone}>{text}</Text>)
-  }
+  if (!text || (Array.isArray(text) && text.filter(t => t).length === 0)) return null;
+  const renderText = text =>
+    (Array.isArray(text) ? (
+      text.map((textItem, key) => {
+        if (!textItem) return null;
+        return (
+          <Text key={key.toString()} style={styles.profileListDetailTextPhone}>
+            {textItem}
+          </Text>
+        );
+      })
+    ) : (
+      <Text style={styles.profileListDetailTextPhone}>{text}</Text>
+    ));
 
   return (
     <View style={[styles.profileListView, Array.isArray(text) && { height: 100 }]}>
       <View style={styles.profileListHeader}>
-        <Text style={styles.profileListHeaderTextPhone}>{title}</Text>
+        <Text style={styles.profileListHeaderTextPhone}>{renderText(text) !== null && title}</Text>
       </View>
-      <View style={styles.profileListDetail}>
-        {renderText(text)}
-      </View>
+      <View style={styles.profileListDetail}>{renderText(text)}</View>
     </View>
   );
 }
@@ -45,24 +50,20 @@ function ProfileData({ staffMember }) {
   return mapStaffMemberData(staffMember).map((profileItem, index) => {
     const title = oFetch(profileItem, 'title');
     const text = oFetch(profileItem, 'text');
-    return (
-      <ProfileItem key={index.toString()} text={text} title={title} />
-    );
+    return <ProfileItem key={index.toString()} text={text} title={title} />;
   });
 }
 
 export default function ProfileComponent(props) {
   const staffMember = oFetch(props, 'staffMember');
   const onLogout = oFetch(props, 'screenProps.onLogout');
-  const {
-    avatarImageUrl,
-    firstName,
-    surname,
-  } = staffMember;
+  const { avatarImageUrl, firstName, surname } = staffMember;
 
-  const avatarUrl = isValidURL(avatarImageUrl) ? avatarImageUrl : `${props.currentUrl}${avatarImageUrl}`;
+  const avatarUrl = isValidURL(avatarImageUrl)
+    ? avatarImageUrl
+    : `${props.currentUrl}${avatarImageUrl}`;
   const fullName = `${firstName} ${surname}`;
-  
+
   return (
     <View style={{ flex: 1, backgroundColor: 'white' }}>
       <NavScreen banner="My Profile" navigation={props.navigation} onLogout={onLogout} />
@@ -77,9 +78,7 @@ export default function ProfileComponent(props) {
               <Image source={{ uri: avatarUrl }} style={styles.imageViewFrames} />
             </View>
             <View style={styles.profileNameTextFramePhone}>
-              <Text style={styles.profileNameTextPhone}>
-                {fullName}
-              </Text>
+              <Text style={styles.profileNameTextPhone}>{fullName}</Text>
             </View>
             <View style={{ marginTop: 15 }}>
               <ProfileData staffMember={staffMember} />
