@@ -33,14 +33,14 @@ class Payments extends Component {
   _keyExtractor = (item, index) => item.id.toString();
 
   _renderItem = ({ item }) => (
-      <PaymentItem
-        id={item.id}
-        onPressItem={this.toggleConfirmModal}
-        amount={item.amount}
-        alert={item.alert}
-        date={item.date}
-        status={item.status}
-      />
+    <PaymentItem
+      id={item.id}
+      onPressItem={this.toggleConfirmModal}
+      amount={item.amount}
+      alert={item.alert}
+      date={item.date}
+      status={item.status}
+    />
   );
 
   toggleConfirmModal = (paymentId) => {
@@ -59,13 +59,16 @@ class Payments extends Component {
 
   onRefreshList = () => {
     this.setState({ refreshing: true });
-    return this.props.reloadShiftData().then(() => {
-      this.setState({ refreshing: false });
-    }).catch((error) => {
-      this.props.screenProps.onGetTokenFailed();
-      constants.BUGSNAG.notify(new Error(error));
-    });
-  }
+    return this.props
+      .reloadShiftData()
+      .then(() => {
+        this.setState({ refreshing: false });
+      })
+      .catch((error) => {
+        this.props.screenProps.onGetTokenFailed();
+        constants.BUGSNAG.notify(new Error(error));
+      });
+  };
 
   render() {
     return (
@@ -75,13 +78,26 @@ class Payments extends Component {
           <View style={styles.mainContent}>
             <View style={styles.mainContentInner}>
               <View style={styles.payments}>
-                  <FlatList
-                    data={this.props.payments}
-                    keyExtractor={this._keyExtractor}
-                    renderItem={this._renderItem}
-                    refreshing={this.state.refreshing}
-                    onRefresh={this.onRefreshList}
-                  />
+                <FlatList
+                  data={this.props.payments}
+                  keyExtractor={this._keyExtractor}
+                  renderItem={this._renderItem}
+                  refreshing={this.state.refreshing}
+                  onRefresh={this.onRefreshList}
+                  ListEmptyComponent={
+                    <View style={styles.paymentsItem}>
+                      <Text
+                        style={[
+                          styles.infoCardText,
+                          styles.infoCardTextPrimary,
+                          styles.infoCardTextAdjustRow,
+                        ]}
+                      >
+                        No payments exist
+                      </Text>
+                    </View>
+                  }
+                />
               </View>
             </View>
           </View>
