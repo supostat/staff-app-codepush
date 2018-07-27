@@ -14,7 +14,7 @@ export default class BossStaffApp extends Component {
   constructor(props) {
     super(props);
     this.store = configureStore();
-    // setJSExceptionHandler(this.globalJSErrorhandler, true);
+    setJSExceptionHandler(this.globalJSErrorhandler, true);
     this.state = {
       isGlobalError: false,
       error: null,
@@ -28,7 +28,9 @@ export default class BossStaffApp extends Component {
   }
 
   globalJSErrorhandler = (error, isFatal) => {
-    this.setState({ isGlobalError: true, error, isFatal });
+    if (isFatal) {
+      this.setState({ isGlobalError: true, error, isFatal });
+    }
   };
 
   render() {
