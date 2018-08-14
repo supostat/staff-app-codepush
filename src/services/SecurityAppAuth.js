@@ -1,4 +1,4 @@
-import moment from 'moment';
+import safeMoment from '../services/safeMoment';
 import AsyncStorageUtil from '../utils/AsyncStorageUtil';
 import * as CONST from '../utils/constants';
 import httpService from './httpService';
@@ -28,9 +28,9 @@ export default class SecurityAppAuth {
 
     if (expiresAt === null) return false;
 
-    const current = moment();
-    const expiration = moment(expiresAt);
-    return current >= expiration;
+    const current = safeMoment.current();
+    const expiration = safeMoment.iso8601Parse(expiresAt);
+    return current.isSameOrAfter(expiration);
   }
 
   static async refreshToken() {
