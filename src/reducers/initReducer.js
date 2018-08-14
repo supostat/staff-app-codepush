@@ -1,4 +1,3 @@
-import safeMoment from '../services/safeMoment';
 import {
   INIT_SUCCESS,
   INIT_FAILED,
