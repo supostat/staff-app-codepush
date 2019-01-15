@@ -1,0 +1,117 @@
+fastlane_version "2.53.1"
+fastlane_require "semantic"
+fastlane_require "semantic/core_ext"
+
+Dotenv.load("../.env.development")
+require "./fastlane_helpers"
+
+before_all do
+  Dotenv.require_keys(
+    "IOS_PROJECT_FOLDER",
+    "ANDROID_PROJECT_FOLDER",
+    "IOS_APP_NAME",
+    "IOS_PROJECT_FILE_PATH",
+    "IOS_APP_IDENTIFIER",
+    "IOS_PROJECT_SCHEME",
+    "CODE_PUSH_IOS",
+    "CODE_PUSH_ANDROID",
+    "S3_ACCESS_KEY",
+    "S3_SECRET_ACCESS_KEY",
+    "S3_BUCKET",
+    "S3_REGION",
+  )
+end
+
+lane :js_deploy do
+  new_version = increment_package_json_minor_version!
+  ios_code_push_deploy
+  android_code_push_deploy
+  git_commit(path: ["package.json", "fastlane/report.xml"], message: "Version Bump (#{new_version})")
+  add_git_tag(
+    tag: "v#{new_version.to_s}",
+  )
+  push_git_tags
+end
+
+lane :s3_deploy_ios do
+  aws_s3(
+    access_key: ENV["S3_ACCESS_KEY"],
+    secret_access_key: ENV["S3_SECRET_ACCESS_KEY"],
+    bucket: ENV["S3_BUCKET"],
+    region: ENV["S3_REGION"],
+    app_directory: "ios",
+    html_template_path: "fastlane/s3_ios_html_template.erb",
+  )
+end
+lane :s3_deploy_android do
+  aws_s3(
+    access_key: ENV["S3_ACCESS_KEY"],
+    secret_access_key: ENV["S3_SECRET_ACCESS_KEY"],
+    bucket: ENV["S3_BUCKET"],
+    region: ENV["S3_REGION"],
+    app_directory: "android",
+    html_template_path: "fastlane/s3_android_html_template.erb",
+  )
+end
+
+lane :full_deploy do
+  new_version = increment_package_json_major_version!
+  ios_build
+  s3_deploy_ios
+  Actions.lane_context[SharedValues::IPA_OUTPUT_PATH] = nil
+  Actions.lane_context[SharedValues::DSYM_OUTPUT_PATH] = nil
+  android_build
+  s3_deploy_android
+  Actions.lane_context[SharedValues::GRADLE_APK_OUTPUT_PATH] = nil
+  ios_code_push_deploy
+  android_code_push_deploy
+  # git_commit(path: ["package.json", "ios/#{ENV["IOS_APP_NAME"]}/Info.plist", "android/app/build.gradle", "fastlane/report.xml", "builds/BossDeployTest.app.dSYM.zip"], message: "Version Bump (#{new_version})")
+  # add_git_tag(
+  #   tag: "v#{new_version.to_s}",
+  # )
+  # push_git_tags
+end
+
+desc "Fetch certificates and provisioning profiles"
+lane :certificates do
+  match(app_identifier: ENV["IOS_APP_IDENTIFIER"], type: "enterprise")
+end
+
+desc "Build the iOS application."
+lane :ios_build do
+  certificates
+  version = read_package_json_version
+  update_ios_version!(version: version)
+  gym(
+    scheme: ENV["IOS_PROJECT_SCHEME"],
+    project: ENV["IOS_PROJECT_FILE_PATH"],
+    output_directory: "builds/",
+    output_name: "#{ENV["IOS_APP_NAME"]}.ipa",
+    silent: true,
+  )
+end
+
+desc "Deploy to Code Push"
+private_lane :ios_code_push_deploy do
+  code_push_release_react(
+    app_name: ENV["CODE_PUSH_IOS"],
+    platform: "ios",
+  )
+end
+
+desc "Deploy Android to Code Push"
+private_lane :android_code_push_deploy do
+  code_push_release_react(
+    app_name: ENV["CODE_PUSH_ANDROID"],
+    platform: "android",
+  )
+end
+
+desc "Build the Android application."
+lane :android_build do
+  version = read_package_json_version
+  update_android_version!(version: version)
+
+  gradle(task: "clean", project_dir: "android/")
+  gradle(task: "assemble", build_type: "Release", project_dir: "android/")
+end
