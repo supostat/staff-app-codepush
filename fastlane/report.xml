@@ -5,87 +5,12 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="00: Verifying fastlane version" time="0.001377">
+      <testcase classname="fastlane.lanes" name="0: Verifying fastlane version" time="0.002009">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="01: Switch to ios_build lane" time="0.001713">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="02: Switch to certificates lane" time="0.001146">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="03: match" time="9.712897">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="04: increment_version_number" time="0.852354">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="05: gym" time="167.198114">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="06: Switch to s3_deploy_ios lane" time="0.00107">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="07: aws_s3" time="3.60967">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="08: Switch to android_build lane" time="0.002532">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="09: gradle" time="17.260794">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="10: gradle" time="116.114988">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="11: Switch to s3_deploy_android lane" time="0.001438">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="12: aws_s3" time="13.515166">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="13: Switch to ios_code_push_deploy lane" time="0.001743">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="14: code_push_release_react" time="41.361811">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="15: Switch to android_code_push_deploy lane" time="0.001155">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="16: code_push_release_react" time="26.073596">
+      <testcase classname="fastlane.lanes" name="1: code_push_release_react" time="28.145759">
         
       </testcase>
     

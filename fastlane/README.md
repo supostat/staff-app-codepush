@@ -45,6 +45,11 @@ Fetch certificates and provisioning profiles
 fastlane ios_build
 ```
 Build the iOS application.
+### ios_code_push_deploy
+```
+fastlane ios_code_push_deploy
+```
+Deploy to Code Push
 ### android_build
 ```
 fastlane android_build

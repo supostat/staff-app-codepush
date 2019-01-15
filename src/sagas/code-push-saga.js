@@ -1,16 +1,18 @@
-import codePushSaga from 'react-native-code-push-saga';
 import codePush from 'react-native-code-push';
 import { channel } from 'redux-saga';
-import { spawn, put, take } from 'redux-saga/effects';
-import { PROGRESS_CHANGED } from '../actions/commonAction';
+import { fork, put, take, cancel } from 'redux-saga/effects';
+import codePushSaga from './react-native-code-push-saga';
+import { startDownload, endDownload, PROGRESS_CHANGED, showBinaryVersionMismatchModal } from '../actions/commonAction';
+
 
 const codePushStatusDidChangeChannel = channel();
 const codePushDownloadDidProgressChannel = channel();
+const codePushBinaryVersionMismatchChannel = channel();
 
 export function* updatesSaga() {
   // Disable syncing on resume, but synchronize
   // with CodePush every 5 seconds.
-  yield spawn(codePushSaga, {
+  const task = yield fork(codePushSaga, {
     syncOnResume: false,
     syncOnInterval: 5,
     syncOptions: {
@@ -25,15 +27,31 @@ export function* updatesSaga() {
     codePushDownloadDidProgress: progress =>
       codePushDownloadDidProgressChannel.put({
         type: PROGRESS_CHANGED,
-        progress,
+        payload: { ...progress },
       }),
+    codePushBinaryVersionMismatch: (remotePackage) => {
+      codePushBinaryVersionMismatchChannel.put({ remotePackage, task });
+    },
   });
+}
+
+export function* watchCodePushBinaryVersionMismatchChannel() {
+  while (true) {
+    const { remotePackage, task } = yield take(codePushBinaryVersionMismatchChannel);
+    yield put(showBinaryVersionMismatchModal(remotePackage));
+    yield cancel(task);
+  }
 }
 
 export function* watchCodePushStatusDidChangeChannel() {
   while (true) {
     const action = yield take(codePushStatusDidChangeChannel);
-    yield put(action);
+    if (action.type === codePush.SyncStatus.DOWNLOADING_PACKAGE) {
+      yield put(startDownload());
+    }
+    if (action.type === codePush.SyncStatus.INSTALLING_UPDATE) {
+      yield put(endDownload());
+    }
   }
 }
 

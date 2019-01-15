@@ -26,11 +26,11 @@ lane :js_deploy do
   new_version = increment_package_json_minor_version!
   ios_code_push_deploy
   android_code_push_deploy
-  git_commit(path: ["package.json", "fastlane/report.xml"], message: "Version Bump (#{new_version})")
-  add_git_tag(
-    tag: "v#{new_version.to_s}",
-  )
-  push_git_tags
+  # git_commit(path: ["package.json", "fastlane/report.xml"], message: "Version Bump (#{new_version})")
+  # add_git_tag(
+  #   tag: "v#{new_version.to_s}",
+  # )
+  # push_git_tags
 end
 
 lane :s3_deploy_ios do
@@ -92,7 +92,7 @@ lane :ios_build do
 end
 
 desc "Deploy to Code Push"
-private_lane :ios_code_push_deploy do
+lane :ios_code_push_deploy do
   code_push_release_react(
     app_name: ENV["CODE_PUSH_IOS"],
     platform: "ios",
