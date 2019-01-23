@@ -26,11 +26,6 @@ lane :js_deploy do
   new_version = increment_package_json_minor_version!
   ios_code_push_deploy
   android_code_push_deploy
-  # git_commit(path: ["package.json", "fastlane/report.xml"], message: "Version Bump (#{new_version})")
-  # add_git_tag(
-  #   tag: "v#{new_version.to_s}",
-  # )
-  # push_git_tags
 end
 
 lane :s3_deploy_ios do
@@ -65,11 +60,6 @@ lane :full_deploy do
   Actions.lane_context[SharedValues::GRADLE_APK_OUTPUT_PATH] = nil
   ios_code_push_deploy
   android_code_push_deploy
-  # git_commit(path: ["package.json", "ios/#{ENV["IOS_APP_NAME"]}/Info.plist", "android/app/build.gradle", "fastlane/report.xml", "builds/BossDeployTest.app.dSYM.zip"], message: "Version Bump (#{new_version})")
-  # add_git_tag(
-  #   tag: "v#{new_version.to_s}",
-  # )
-  # push_git_tags
 end
 
 desc "Fetch certificates and provisioning profiles"
