@@ -17,16 +17,14 @@
 #else
 #import "RNSentry.h" // This is used for versions of react < 0.40
 #endif
-#import <BugsnagReactNative/BugsnagReactNative.h>
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  [BugsnagReactNative start];
   NSURL *jsCodeLocation;
 
-  
+
     #ifdef DEBUG
         jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
     #else

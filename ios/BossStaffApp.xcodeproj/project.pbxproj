@@ -675,7 +675,6 @@
 			children = (
 				15174858F4A4475A82FC1613 /* libRCTRestart.a */,
 				5B9CF06CA7A54D0FA3A94361 /* libReactNativeExceptionHandler.a */,
-				7ECE4F9CA57C4BBABACEF841 /* libBugsnagReactNative.a */,
 				9828A7A8BEF347D89F3681AA /* libRNDeviceInfo.a */,
 				97A70A7ACE40415899D224E7 /* libReactNativeKeyboardManager.a */,
 				667A9241DC07472AA8734E4B /* libRNSpinkit.a */,

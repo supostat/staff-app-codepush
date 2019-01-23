@@ -58,7 +58,7 @@
     "babel-eslint": "^8.2.2",
     "babel-jest": "22.4.3",
     "babel-preset-es2015-riot": "^1.1.0",
-    "babel-preset-react-native": "4.0.0",
+    "babel-preset-react-native": "^4.0.1",
     "bugsnag-sourcemaps": "^1.0.3",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
