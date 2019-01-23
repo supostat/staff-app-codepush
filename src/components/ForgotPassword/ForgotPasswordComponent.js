@@ -1,15 +1,14 @@
 'user strict';
 
 import React, { Component } from 'react';
-import { Text,
+import {
+  Text,
   View,
   TouchableOpacity,
   Image,
   TextInput,
   ScrollView,
   Dimensions,
-  Keyboard,
-  KeyboardAvoidingView,
   Platform,
   Alert,
 } from 'react-native';
@@ -17,6 +16,7 @@ import style from './style';
 import * as constant from '../../utils/constants';
 import DeviceInfo from 'react-native-device-info';
 import KeyboardManager from 'react-native-keyboard-manager';
+import { ErrorTracker } from '../../utils/error-tracker';
 
 let isTablet = false;
 
@@ -51,8 +51,8 @@ export default class ForgotPasswordComponent extends Component {
         { cancelable: false },
       );
     }).catch((error) => {
-      constant.BUGSNAG.notify(new Error(error));
-      throw new Error(error);
+      ErrorTracker.trackError(error);
+      throw error;
     });
   }
 

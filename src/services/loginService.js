@@ -30,18 +30,5 @@ export async function init() {
   } catch (error) {
     return Promise.reject(error);
   }
-  const staffMember = oFetch(response, 'data.profilePage.staffMember');
-  try {
-    const additionalData = {
-      id: staffMember.id,
-      'Full name': `${staffMember.firstName} ${staffMember.surname}`,
-      'Base URL': baseURL,
-      'Device ID': DeviceInfo.getUniqueID(),
-    };
-    CONST.applyBugsnagAdditionalData(additionalData);
-    CONST.BUGSNAG.setUser(`${staffMember.id}`, `${staffMember.firstName} ${staffMember.surname}`, `${staffMember.email}`);
-  } catch (err) {
-    return Promise.reject(err);
-  }
   return response;
 }

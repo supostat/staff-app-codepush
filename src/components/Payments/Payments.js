@@ -15,6 +15,7 @@ import styles from './styles';
 import PaymentItem from './PaymentItem';
 import PaymentConfirmationModal from './PaymentConfirmationModal';
 import * as constants from '../../utils/constants';
+import { ErrorTracker } from '../../utils/error-tracker';
 
 class Payments extends Component {
   state = {
@@ -66,7 +67,7 @@ class Payments extends Component {
       })
       .catch((error) => {
         this.props.screenProps.onGetTokenFailed();
-        constants.BUGSNAG.notify(new Error(error));
+        ErrorTracker.trackError(error);
       });
   };
 

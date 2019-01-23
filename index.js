@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
-import { AppRegistry, View, Text } from 'react-native';
-import { Provider, connect } from 'react-redux';
+import { AppRegistry, View } from 'react-native';
+import { Provider } from 'react-redux';
 import { setJSExceptionHandler } from 'react-native-exception-handler';
-import { withNetworkConnectivity } from 'react-native-offline';
+import { Sentry } from 'react-native-sentry';
+import { SENTRY_LINK } from 'react-native-dotenv';
+
 import SplashScreen from 'react-native-splash-screen';
 
 import configureStore from './src/configureStore';
 import App from './App';
 import Spinner from './src/components/Loader';
 import SomethingWentWrong from './src/components/SomethingWentWrong';
+
+Sentry.config(SENTRY_LINK).install();
 
 export default class BossStaffApp extends Component {
   constructor(props) {

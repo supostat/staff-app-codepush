@@ -2,7 +2,7 @@ import oFetch from 'o-fetch';
 import httpService from './httpService';
 import SecurityAppAuth from './SecurityAppAuth';
 import AppManager from '../utils/AppManager';
-import * as CONST from '../utils/constants';
+import { ErrorTracker } from '../utils/error-tracker';
 
 const Ably = require('ably').Realtime;
 
@@ -13,7 +13,7 @@ class AblyService {
 
     const ensureActive = () => {
       if (!this.active) {
-        CONST.BUGSNAG.notify(new Error('Attempt to use inactive service'));
+        ErrorTracker.trackError(new Error('Attempt to use inactive service'));
       }
     };
 
@@ -73,10 +73,10 @@ export function createAblyService(options) {
                 return onFailed(error);
               }
             } else {
-              CONST.BUGSNAG.notify(new Error(`Strange error from Ably authCallback, ERROR: => ${JSON.stringify(error)}`));
+              ErrorTracker.trackError(new Error(`Strange error from Ably authCallback, ERROR: => ${JSON.stringify(error)}`));
               return Promise.reject(error);
             }
-            CONST.BUGSNAG.notify(new Error(error));
+            ErrorTracker.trackError(new Error(error));
             return Promise.reject(error);
           });
       },
@@ -88,12 +88,12 @@ export function createAblyService(options) {
 
     ablyRealtime.connection.on('disconnected', (resp) => {
       onDisconnected(resp);
-      CONST.BUGSNAG.notify(new Error('Connection failed'));
+      ErrorTracker.trackError(new Error('Connection failed'));
     });
 
     ablyRealtime.connection.on('failed', (resp) => {
       onFailed(resp);
-      CONST.BUGSNAG.notify(new Error('Connection failed'));
+      ErrorTracker.trackError(new Error('Connection failed'));
     });
 
     // private stuff
@@ -103,7 +103,7 @@ export function createAblyService(options) {
     return new Promise((resolve, reject) => {
       presenceChannel.presence.enter('Howdy', (err) => {
         if (err) {
-          CONST.BUGSNAG.notify(new Error(`Entering presence channel failed: ${err}`));
+          ErrorTracker.trackError(new Error(`Entering presence channel failed: ${err}`));
           return reject(err);
         }
         return resolve(new AblyService(ablyRealtime, personalChannel, presenceChannel));

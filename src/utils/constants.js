@@ -1,5 +1,4 @@
 // API Calling Constants
-import { Client, Configuration } from 'bugsnag-react-native';
 export const SUCCESS = 'SUCCESS';
 export const FAILURE = 'FAILURE';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
@@ -15,25 +14,6 @@ export const APP_CUSTOM_URL = 'APP_CUSTOM_URL';
 export const APP_TOUSE_CUSTOM_URL = 'APP_TOUSE_CUSTOM_URL';
 export const USER_PASSWORD = 'USER_PASSWORD';
 export const USER_LOGOUT_EVENT = 'USER_LOGOUT';
-
-const configuration = new Configuration();
-configuration.releaseStage = __DEV__ ? 'development' : 'production';
-configuration.notifyReleaseStages = ['production'];
-configuration.codeBundleId = require('../../package.json').version;
-
-export let BUGSNAG = new Client(configuration);
-
-export const applyBugsnagAdditionalData = (data) => {
-  configuration.registerBeforeSendCallback((report, error) => {
-    report.metadata = {
-      ...report.metadata,
-      'Additional data': {
-        ...data,
-      },
-    };
-  });
-  BUGSNAG = new Client(configuration);
-};
 
 // String constants
 export const RESET_PASSWORD_TEXT = 'Send Reset Password Instructions';

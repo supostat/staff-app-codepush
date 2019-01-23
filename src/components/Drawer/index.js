@@ -14,6 +14,7 @@ import Profile from '../Profile/ProfileContainer';
 import Payments from '../Payments';
 import Shift from '../Shift/ShiftContainer';
 import * as constants from '../../utils/constants';
+import { ErrorTracker } from '../../utils/error-tracker';
 
 const Drawer = TabNavigator(
   {
@@ -112,7 +113,7 @@ class SecureApp extends React.Component {
     });
     this.props.navigation.dispatch(resetAction);
     if (!this.ablyService) {
-      constants.BUGSNAG.notify(new Error("!!! Ably service doesn't exist in onLogout function !!!"));
+      ErrorTracker.trackError(new Error("!!! Ably service doesn't exist in onLogout function !!!"));
     } else {
       return this.ablyService.deactivate();
     }

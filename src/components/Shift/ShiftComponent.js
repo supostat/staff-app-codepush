@@ -13,6 +13,7 @@ import { NavScreen } from '../NavBar/TopNavScreen';
 import styles from './style';
 import * as constants from '../../utils/constants';
 import { normalizeShifts } from '../../utils/common';
+import { ErrorTracker } from '../../utils/error-tracker';
 
 const mediumGray = require('../../../assets/icon-storefront-shifts-medium-gray.png');
 
@@ -95,7 +96,7 @@ export default class ShiftComponent extends React.Component {
       this.setState({ refreshing: false });
     }).catch((error) => {
       this.props.screenProps.onGetTokenFailed();
-      constants.BUGSNAG.notify(new Error(error));
+      ErrorTracker.trackError(error);
     });
   }
 

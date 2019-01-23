@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -62,11 +61,11 @@
 		D4F0A2B168E24A168402294E /* Montserrat-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 96957AB1ED66484DB5688933 /* Montserrat-Thin.otf */; };
 		D64692F2E5EF4F1F8451F739 /* MontserratAlternates-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2440AA8A88924B9485F9F099 /* MontserratAlternates-ExtraBold.otf */; };
 		E4C853D095A245CE846A0FCC /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2E8A7CD24A744E8B1FA1FFD /* libRNVectorIcons.a */; };
-		E516D192B66E4AF6BCA7086A /* libBugsnagReactNative.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECE4F9CA57C4BBABACEF841 /* libBugsnagReactNative.a */; };
 		E9891CCB4A6E40D3983BAFF9 /* libRCTOrientation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ABA8563E7CF4D2693B58CFC /* libRCTOrientation.a */; };
 		F1C111E97E864D1E9E75D678 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9A792B52FAA14EBBA6547ACA /* Zocial.ttf */; };
 		F3D7FF9CACA84322ACA40896 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 238821972C9649B8856CBA35 /* Entypo.ttf */; };
 		F5DC62BF20FC9F0F0059E1F2 /* libART.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F528FF2E20C6B4C300F1BBD9 /* libART.a */; };
+		D5D6243FF4B3425781F30879 /* libRNSentry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FBBA01EE36644D7E8300CEC2 /* libRNSentry.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -237,13 +236,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = 3D3CD9181DE5FBD800167DC4;
 			remoteInfo = "jschelpers-tvOS";
-		};
-		59023B34206E1E0B00319964 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E455C9D1C2E1470F9755FCF1 /* BugsnagReactNative.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 8AD256131D6DE5F600C7D842;
-			remoteInfo = BugsnagReactNative;
 		};
 		59023B43206E1E0B00319964 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -481,7 +473,6 @@
 		73BED2B4B1CE491E8FF69B1B /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		74F60852B576473E9C9B1F87 /* SplashScreen.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = SplashScreen.xcodeproj; path = "../node_modules/react-native-splash-screen/ios/SplashScreen.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
-		7ECE4F9CA57C4BBABACEF841 /* libBugsnagReactNative.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libBugsnagReactNative.a; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		8C62DB31928D4957B3ED34BD /* ReactNativeKeyboardManager.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = ReactNativeKeyboardManager.xcodeproj; path = "../node_modules/react-native-keyboard-manager/ios/ReactNativeKeyboardManager.xcodeproj"; sourceTree = "<group>"; };
 		96957AB1ED66484DB5688933 /* Montserrat-Thin.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Thin.otf"; path = "../src/fonts/Montserrat-Thin.otf"; sourceTree = "<group>"; };
@@ -507,7 +498,6 @@
 		E1EA139AEFA845CDAEDB0DE4 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		E2A5F3431D0F47038AB23DE0 /* libSplashScreen.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libSplashScreen.a; sourceTree = "<group>"; };
 		E404B716D5D147EDBF7E83F4 /* MontserratAlternates-Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "MontserratAlternates-Bold.otf"; path = "../src/fonts/MontserratAlternates-Bold.otf"; sourceTree = "<group>"; };
-		E455C9D1C2E1470F9755FCF1 /* BugsnagReactNative.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = BugsnagReactNative.xcodeproj; path = "../node_modules/bugsnag-react-native/cocoa/BugsnagReactNative.xcodeproj"; sourceTree = "<group>"; };
 		E8F02EADCC2D48C087DD14EA /* icons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = icons.ttf; path = ../src/fonts/icons.ttf; sourceTree = "<group>"; };
 		EC26289AA611400C8091A296 /* CodePush.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = CodePush.xcodeproj; path = "../node_modules/react-native-code-push/ios/CodePush.xcodeproj"; sourceTree = "<group>"; };
 		F4316FA722174D4C9C2EA85D /* RCTRestart.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTRestart.xcodeproj; path = "../node_modules/react-native-restart/ios/RCTRestart.xcodeproj"; sourceTree = "<group>"; };
@@ -515,6 +505,8 @@
 		F5C41C8F79C94972A5EC1DB9 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		FB90817AAD584F00B538EF7D /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		FBCBBA3AEC634DBCB9129CCF /* ReactNativeExceptionHandler.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = ReactNativeExceptionHandler.xcodeproj; path = "../node_modules/react-native-exception-handler/ios/ReactNativeExceptionHandler.xcodeproj"; sourceTree = "<group>"; };
+		DBF858645BC048A4877C37CE /* RNSentry.xcodeproj */ = {isa = PBXFileReference; name = "RNSentry.xcodeproj"; path = "../node_modules/react-native-sentry/ios/RNSentry.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		FBBA01EE36644D7E8300CEC2 /* libRNSentry.a */ = {isa = PBXFileReference; name = "libRNSentry.a"; path = "libRNSentry.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -538,7 +530,6 @@
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				AD8BC648EC214420B1F39127 /* libRCTRestart.a in Frameworks */,
 				5BD8340071A44B639AC683CD /* libReactNativeExceptionHandler.a in Frameworks */,
-				E516D192B66E4AF6BCA7086A /* libBugsnagReactNative.a in Frameworks */,
 				1CA4EE9EC2684A4BAA10D2C7 /* libz.tbd in Frameworks */,
 				97870599D7C94673896893C9 /* libRNDeviceInfo.a in Frameworks */,
 				1102AE21F4E24278B100A7A0 /* libReactNativeKeyboardManager.a in Frameworks */,
@@ -547,6 +538,7 @@
 				E9891CCB4A6E40D3983BAFF9 /* libRCTOrientation.a in Frameworks */,
 				B357457C376F40ED9E98ADF1 /* libSplashScreen.a in Frameworks */,
 				0D27E6459FF94D0B9E67C485 /* libCodePush.a in Frameworks */,
+				D5D6243FF4B3425781F30879 /* libRNSentry.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -712,14 +704,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		59023B27206E1E0900319964 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				59023B35206E1E0B00319964 /* libBugsnagReactNative.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		59023B29206E1E0900319964 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -806,7 +790,6 @@
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				F4316FA722174D4C9C2EA85D /* RCTRestart.xcodeproj */,
 				FBCBBA3AEC634DBCB9129CCF /* ReactNativeExceptionHandler.xcodeproj */,
-				E455C9D1C2E1470F9755FCF1 /* BugsnagReactNative.xcodeproj */,
 				3B756EF7CDCC4EB99698DDE7 /* RNDeviceInfo.xcodeproj */,
 				8C62DB31928D4957B3ED34BD /* ReactNativeKeyboardManager.xcodeproj */,
 				723E955E0760422C89FFD2B0 /* RNSpinkit.xcodeproj */,
@@ -814,6 +797,7 @@
 				21705274A6474E02A11517BF /* RCTOrientation.xcodeproj */,
 				74F60852B576473E9C9B1F87 /* SplashScreen.xcodeproj */,
 				EC26289AA611400C8091A296 /* CodePush.xcodeproj */,
+				DBF858645BC048A4877C37CE /* RNSentry.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -917,6 +901,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		B79F6397E38147F2880BDD6D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			path = Application;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -928,6 +920,7 @@
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
+				F8E668AA87A74ACEAAB5D169 /* Upload Debug Symbols to Sentry */,
 			);
 			buildRules = (
 			);
@@ -968,10 +961,6 @@
 				{
 					ProductGroup = F528FF2920C6B4C300F1BBD9 /* Products */;
 					ProjectRef = F528FF2820C6B4C300F1BBD9 /* ART.xcodeproj */;
-				},
-				{
-					ProductGroup = 59023B27206E1E0900319964 /* Products */;
-					ProjectRef = E455C9D1C2E1470F9755FCF1 /* BugsnagReactNative.xcodeproj */;
 				},
 				{
 					ProductGroup = F528FF2020C6B48700F1BBD9 /* Products */;
@@ -1234,13 +1223,6 @@
 			remoteRef = 3DAD3EAE1DF850E9000B6D8A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		59023B35206E1E0B00319964 /* libBugsnagReactNative.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libBugsnagReactNative.a;
-			remoteRef = 59023B34206E1E0B00319964 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		59023B44206E1E0B00319964 /* libRCTOrientation.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1489,7 +1471,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+			shellScript = "export SENTRY_PROPERTIES=sentry.properties\nexport NODE_BINARY=node\n../node_modules/@sentry/cli/bin/sentry-cli react-native xcode ../node_modules/react-native/scripts/react-native-xcode.sh";
+		};
+		F8E668AA87A74ACEAAB5D169 /* Upload Debug Symbols to Sentry */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			name = "Upload Debug Symbols to Sentry";
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			shellPath = /bin/sh;
+			shellScript = "export SENTRY_PROPERTIES=sentry.properties\n../node_modules/@sentry/cli/bin/sentry-cli upload-dsym";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1531,7 +1527,6 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-restart/ios/RCTRestart/**",
 					"$(SRCROOT)/../node_modules/react-native-exception-handler/ios",
-					"$(SRCROOT)/../node_modules/bugsnag-react-native/cocoa/**",
 					"$(SRCROOT)/../node_modules/react-native-device-info/ios/RNDeviceInfo",
 					"$(SRCROOT)/../node_modules/react-native-keyboard-manager/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-spinkit/ios/**",
@@ -1539,6 +1534,7 @@
 					"$(SRCROOT)/../node_modules/react-native-orientation/iOS/RCTOrientation/**",
 					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
 					"$(SRCROOT)/../node_modules/react-native-code-push/ios/CodePush/**",
+					"$(SRCROOT)/../node_modules/react-native-sentry/ios/**",
 				);
 				INFOPLIST_FILE = BossStaffApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -1553,6 +1549,10 @@
 				PROVISIONING_PROFILE_SPECIFIER = "match InHouse com.pubinvestgroup.BossStaffApp";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/BossStaffApp\"",
+				);
 			};
 			name = Debug;
 		};
@@ -1568,7 +1568,6 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-restart/ios/RCTRestart/**",
 					"$(SRCROOT)/../node_modules/react-native-exception-handler/ios",
-					"$(SRCROOT)/../node_modules/bugsnag-react-native/cocoa/**",
 					"$(SRCROOT)/../node_modules/react-native-device-info/ios/RNDeviceInfo",
 					"$(SRCROOT)/../node_modules/react-native-keyboard-manager/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-spinkit/ios/**",
@@ -1576,6 +1575,7 @@
 					"$(SRCROOT)/../node_modules/react-native-orientation/iOS/RCTOrientation/**",
 					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
 					"$(SRCROOT)/../node_modules/react-native-code-push/ios/CodePush/**",
+					"$(SRCROOT)/../node_modules/react-native-sentry/ios/**",
 				);
 				INFOPLIST_FILE = BossStaffApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -1590,6 +1590,10 @@
 				PROVISIONING_PROFILE_SPECIFIER = "match InHouse com.pubinvestgroup.BossStaffApp";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/BossStaffApp\"",
+				);
 			};
 			name = Release;
 		};
