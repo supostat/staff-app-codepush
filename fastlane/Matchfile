@@ -1,5 +1,0 @@
-git_url("git@github.com:jsmbars/boss-certificates.git")
-
-type("enterprise") # The default type, can be: appstore, adhoc, enterprise or development
-username("ipugachev84@gmail.com") # Your Apple Developer Portal username
-app_identifier(["com.pubinvestgroup.BossStaffApp"]) # Change it to your APP_ID
