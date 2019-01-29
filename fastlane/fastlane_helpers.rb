@@ -1,3 +1,37 @@
+require 'aws-sdk'
+
+Aws.config.update({
+  region: ENV["S3_REGION"],
+  credentials: Aws::Credentials.new(ENV["S3_ACCESS_KEY"], ENV["S3_SECRET_ACCESS_KEY"])
+})
+
+def upload_file_to_s3(file_path:)
+  file_data = File.open(file_path, 'rb')
+  s3_client = Aws::S3::Client.new
+  bucket = Aws::S3::Bucket.new(ENV["S3_IMAGE_BUCKET"], client: s3_client)
+  base_file_name = File.basename(file_path)
+  folder = !ENV["S3_IMAGE_FOLDER"].empty? ? "#{ENV["S3_IMAGE_FOLDER"]}/" : ""
+
+  details = {
+    acl: "public-read",
+    key: folder + base_file_name,
+    body: file_data,
+  }
+  obj = bucket.put_object(details)
+  if obj.kind_of? Aws::S3::ObjectVersion
+    obj = obj.object
+  end
+  pp "Uploaded #{obj.public_url.to_s}"
+end
+
+def upload_files_to_s3
+  pp "Uploading images to S3 ..."
+  files = Dir["./images/*"]
+  files.each do |file_path|
+    upload_file_to_s3(file_path: file_path)
+  end
+end
+
 def get_package_json
   file = File.read("../package.json")
   JSON.parse(file)
