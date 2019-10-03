@@ -27,7 +27,7 @@
     "react": "16.8.3",
     "react-final-form": "^3.6.0",
     "react-native": "0.59.2",
-    "react-native-code-push": "^5.3.4",
+    "react-native-code-push": "^5.7.0",
     "react-native-code-push-saga": "^1.0.1",
     "react-native-device-info": "^0.21.4",
     "react-native-dotenv": "^0.2.0",
