@@ -1,10 +1,10 @@
 import React, { PureComponent } from 'react';
 import { StyleSheet, View, Text, Linking, TouchableOpacity, SafeAreaView, Platform } from 'react-native';
-import { S3_BUCKET, S3_REGION, S3_IOS_APP_DIR, S3_ANDROID_APP_DIR } from 'react-native-dotenv';
+import { APP_IOS_DOWNLOAD_URL, APP_ANDROID_DOWNLOAD_URL } from 'react-native-dotenv';
 
 const downloadUrl = Platform.select({
-  ios: `https://${S3_BUCKET}.s3.${S3_REGION}.amazonaws.com/${S3_IOS_APP_DIR}/index.html`,
-  android: `https://${S3_BUCKET}.s3.${S3_REGION}.amazonaws.com/${S3_ANDROID_APP_DIR}/index.html`,
+  ios: APP_IOS_DOWNLOAD_URL,
+  android: APP_ANDROID_DOWNLOAD_URL,
 });
 class NeedAppRedownload extends PureComponent {
   render() {
