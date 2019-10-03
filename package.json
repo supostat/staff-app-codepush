@@ -24,9 +24,9 @@
     "numeral": "^2.0.6",
     "o-fetch": "^0.2.3",
     "prop-types": "^15.6.1",
-    "react": "^16.3.0-alpha.1",
+    "react": "16.8.3",
     "react-final-form": "^3.6.0",
-    "react-native": "0.54.4",
+    "react-native": "0.59.2",
     "react-native-code-push": "^5.3.4",
     "react-native-code-push-saga": "^1.0.1",
     "react-native-device-info": "^0.21.4",
@@ -55,8 +55,10 @@
     "reselect": "^3.0.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.4.3",
+    "@babel/runtime": "^7.4.3",
     "babel-eslint": "^8.2.2",
-    "babel-jest": "22.4.3",
+    "babel-jest": "^24.7.1",
     "babel-preset-es2015-riot": "^1.1.0",
     "babel-preset-react-native": "^4.0.1",
     "bugsnag-sourcemaps": "^1.0.3",
@@ -67,11 +69,12 @@
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.7.0",
     "eslint-plugin-react-native": "^3.2.1",
-    "jest": "22.4.3",
+    "jest": "^24.7.1",
     "node-cmd": "^3.0.0",
     "plist": "^3.0.1",
     "react-devtools": "^3.2.1",
-    "react-test-renderer": "^16.3.0-alpha.1"
+    "react-test-renderer": "16.8.3",
+    "metro-react-native-babel-preset": "^0.53.1"
   },
   "rnpm": {
     "assets": [
