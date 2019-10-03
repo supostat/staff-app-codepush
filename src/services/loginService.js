@@ -4,7 +4,6 @@ import AppManager from '../utils/AppManager';
 import SecurityAppAuth from './SecurityAppAuth';
 import httpService from './httpService';
 import oFetch from 'o-fetch';
-import DeviceInfo from 'react-native-device-info';
 
 export function saveAuthToken(authToken) {
   AsyncStorageUtil.setAsyncStorage(CONST.AUTH_TOKEN_KEY, authToken);

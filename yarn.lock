@@ -6537,10 +6537,6 @@ react-native-code-push@^5.7.0:
     semver "^5.6.0"
     xcode "1.0.0"
 
-react-native-device-info@^0.21.4:
-  version "0.21.4"
-  resolved "https://registry.yarnpkg.com/react-native-device-info/-/react-native-device-info-0.21.4.tgz#364d893b3e00d4422c7b02e7e26952fe181f57d2"
-
 react-native-dismiss-keyboard@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/react-native-dismiss-keyboard/-/react-native-dismiss-keyboard-1.0.0.tgz#32886242b3f2317e121f3aeb9b0a585e2b879b49"
@@ -6621,9 +6617,9 @@ react-native-sentry@^0.40.3:
     "@sentry/wizard" "^0.12.1"
     raven-js "^3.24.2"
 
-react-native-spinkit@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/react-native-spinkit/-/react-native-spinkit-1.1.1.tgz#3ae512f3978bc750b7c02639911e1710750d8539"
+react-native-spinkit@1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/react-native-spinkit/-/react-native-spinkit-1.4.1.tgz#348e8b72b68741abdabe43fc14a9d69cd6a606de"
   dependencies:
     prop-types "^15.5.8"
 

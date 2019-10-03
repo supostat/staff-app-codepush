@@ -14,11 +14,10 @@ import {
 } from 'react-native';
 import style from './style';
 import * as constant from '../../utils/constants';
-import DeviceInfo from 'react-native-device-info';
 import KeyboardManager from 'react-native-keyboard-manager';
 import { ErrorTracker } from '../../utils/error-tracker';
 
-let isTablet = false;
+const isTablet = false;
 
 export default class ForgotPasswordComponent extends Component {
   constructor(props) {
@@ -27,12 +26,6 @@ export default class ForgotPasswordComponent extends Component {
       email: '',
       isKeyboardShown: false,
     };
-  }
-  componentWillMount() {
-    isTablet = DeviceInfo.isTablet();
-    if (Platform.OS === 'ios') {
-      KeyboardManager.setEnable(true);
-    }
   }
 
   focusOnField(filedName) {
