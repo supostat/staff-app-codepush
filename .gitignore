@@ -1,6 +1,7 @@
 
 fastlane/Matchfile
 android/gradle.properties
+.env.fastlane.*
 # expo
 .expo/
 /builds/
