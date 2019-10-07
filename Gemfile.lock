@@ -134,6 +134,7 @@ GEM
     os (1.0.1)
     plist (3.5.0)
     public_suffix (2.0.5)
+    rb-readline (0.5.5)
     representable (3.0.4)
       declarative (< 0.1.0)
       declarative-option (< 0.2.0)
@@ -182,11 +183,12 @@ PLATFORMS
 DEPENDENCIES
   byebug
   dotenv
-  fastlane
+  fastlane (= 2.131.0)
   fastlane-plugin-android_versioning
   fastlane-plugin-aws_s3
   fastlane-plugin-code_push!
   nokogiri
+  rb-readline
   semantic
 
 BUNDLED WITH
