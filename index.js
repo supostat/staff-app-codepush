@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { AppRegistry, View } from 'react-native';
 import { Provider } from 'react-redux';
 import { setJSExceptionHandler } from 'react-native-exception-handler';
-import { Sentry } from 'react-native-sentry';
+import * as Sentry from '@sentry/react-native';
 import { APP_SENTRY_LINK } from 'react-native-dotenv';
 
 import SplashScreen from 'react-native-splash-screen';
@@ -12,8 +12,9 @@ import App from './App';
 import Spinner from './src/components/Loader';
 import SomethingWentWrong from './src/components/SomethingWentWrong';
 
-Sentry.config(APP_SENTRY_LINK).install();
-
+Sentry.init({
+  dsn: APP_SENTRY_LINK,
+});
 export default class BossStaffApp extends Component {
   constructor(props) {
     super(props);

@@ -3,14 +3,14 @@ package com.bossstaffapp;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import io.sentry.RNSentryPackage;
+import com.github.yamill.orientation.OrientationPackage;
+import com.masteratul.exceptionhandler.ReactNativeExceptionHandlerPackage;
 import com.react.rnspinkit.RNSpinkitPackage;
 import com.microsoft.codepush.react.CodePush;
 import com.oblador.vectoricons.VectorIconsPackage;
 import org.devio.rn.splashscreen.SplashScreenReactPackage;
-import io.sentry.RNSentryPackage;
 import com.avishayil.rnrestart.ReactNativeRestartPackage;
-import com.github.yamill.orientation.OrientationPackage;
-import com.masteratul.exceptionhandler.ReactNativeExceptionHandlerPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
@@ -37,14 +37,14 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNSentryPackage(),
+            new OrientationPackage(),
+            new ReactNativeExceptionHandlerPackage(),
             new RNSpinkitPackage(),
             new CodePush(getResources().getString(R.string.reactNativeCodePush_androidDeploymentKey), getApplicationContext(), BuildConfig.DEBUG),
             new VectorIconsPackage(),
             new SplashScreenReactPackage(),
-            new RNSentryPackage(),
-            new ReactNativeRestartPackage(),
-            new OrientationPackage(),
-            new ReactNativeExceptionHandlerPackage()
+            new ReactNativeRestartPackage()
       );
     }
 

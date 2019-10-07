@@ -29,14 +29,12 @@
 		1B015E84545D49028C8DF984 /* MontserratAlternates-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = BDFD263FC7A845F18CBB2165 /* MontserratAlternates-Black.otf */; };
 		1CA4EE9EC2684A4BAA10D2C7 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 38E8DBD8556A412FB1E01343 /* libz.tbd */; };
 		266A4AD164284A22A1EB4746 /* libRCTRestart.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 694D753BB3774FDB96BC8A7D /* libRCTRestart.a */; };
-		2711B9A1A0EC4A8D8799F8E6 /* libRNSentry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FCBEE0F7836D4931BF397520 /* libRNSentry.a */; };
 		361AF549A20F4C898A4461B8 /* Montserrat-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 20635C29DA8B47B1988BA639 /* Montserrat-ExtraLight.otf */; };
 		363087198332481BB96E77F7 /* MontserratAlternates-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 349BA21FD63F4CFABD7338BA /* MontserratAlternates-SemiBold.otf */; };
 		4161C451205E4854AD3E5806 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3C89E0AAF9E145F885982C8F /* Feather.ttf */; };
 		43DB08683E5E494D91FE13B7 /* Montserrat-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = DD4A79F88AB847DB81C3749F /* Montserrat-Light.otf */; };
 		483714DC3A9A4965A91991A5 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA80F800FE36494A9C14A593 /* Ionicons.ttf */; };
 		4F84759E03C94776B05459EF /* icons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E8F02EADCC2D48C087DD14EA /* icons.ttf */; };
-		52B8E82C21E2497F814586EC /* libReactNativeExceptionHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E2A10B49483E4D71AEE05814 /* libReactNativeExceptionHandler.a */; };
 		5502A56990134C3889A746B4 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C65292AE5CD741D0824B3AE2 /* FontAwesome.ttf */; };
 		591B13F12345F19F00336601 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 591B13F02345F19F00336601 /* JavaScriptCore.framework */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
@@ -63,9 +61,11 @@
 		ED6BA8052413480EA6A248FE /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 953E27C49EDC41F99007606D /* Entypo.ttf */; };
 		EE28C943411343FF8755E213 /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE8AE9E99D1244A18F08D051 /* libRNVectorIcons.a */; };
 		F5DC62BF20FC9F0F0059E1F2 /* libART.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F528FF2E20C6B4C300F1BBD9 /* libART.a */; };
-		F8BD1C7B5127480B830D13C5 /* libRCTOrientation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 26285F1A18AE4DE98625FB2A /* libRCTOrientation.a */; };
 		FA82C15CD2D445E68656F310 /* libCodePush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24B6A2F08A884B40BCDDCC42 /* libCodePush.a */; };
 		2FCC0338D7A444E09EA8FEBB /* libRNSpinkit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF58B4AA9B3D4BCBAB3D82C5 /* libRNSpinkit.a */; };
+		34E7220F632E4D56B5464277 /* libReactNativeExceptionHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 114C4A1C5D7E43DAA194D4DC /* libReactNativeExceptionHandler.a */; };
+		CBDD2B9C89BA47D58F7C2321 /* libRCTOrientation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2252C4BA5D5845FEBD7BC9D9 /* libRCTOrientation.a */; };
+		0F07ECC11183452FACB523C6 /* libRNSentry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 23C7DBD246D344E1B2B26D9C /* libRNSentry.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -300,33 +300,12 @@
 			remoteGlobalIDString = ED296FEE214C9CF800B7C4FE;
 			remoteInfo = "jsiexecutor-tvOS";
 		};
-		59A883AD2345FC6E0033E788 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EBF299D2EA944D3CA297C9E1 /* RNSentry.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 134814201AA4EA6300B7C361;
-			remoteInfo = RNSentry;
-		};
-		59A883AF2345FC6E0033E788 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EBF299D2EA944D3CA297C9E1 /* RNSentry.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 274692C321B4414400BF91A8;
-			remoteInfo = "RNSentry-tvOS";
-		};
 		59A883B22345FC6E0033E788 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DDFED5981282415EA0F701B5 /* SplashScreen.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 3D7682761D8E76B80014119E;
 			remoteInfo = SplashScreen;
-		};
-		59A883B92345FC6E0033E788 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C5D03E48A13D4F68927DEBFF /* RCTOrientation.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 134814201AA4EA6300B7C361;
-			remoteInfo = RCTOrientation;
 		};
 		59A883BC2345FC6E0033E788 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -341,13 +320,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = 5DBEB1501B18CEA900B34395;
 			remoteInfo = RNVectorIcons;
-		};
-		59A883CE2345FC6E0033E788 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 93BC7814DF8A4BB592F700D4 /* ReactNativeExceptionHandler.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 134814201AA4EA6300B7C361;
-			remoteInfo = ReactNativeExceptionHandler;
 		};
 		59A88435234601DF0033E788 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -440,7 +412,6 @@
 		22D0B06C93564D709A7AFFD4 /* MontserratAlternates-ExtraLight.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "MontserratAlternates-ExtraLight.otf"; path = "../src/fonts/MontserratAlternates-ExtraLight.otf"; sourceTree = "<group>"; };
 		2440AA8A88924B9485F9F099 /* MontserratAlternates-ExtraBold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "MontserratAlternates-ExtraBold.otf"; path = "../src/fonts/MontserratAlternates-ExtraBold.otf"; sourceTree = "<group>"; };
 		24B6A2F08A884B40BCDDCC42 /* libCodePush.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libCodePush.a; sourceTree = "<group>"; };
-		26285F1A18AE4DE98625FB2A /* libRCTOrientation.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTOrientation.a; sourceTree = "<group>"; };
 		28130B8F92F4432F92DCDE14 /* MontserratAlternates-Medium.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "MontserratAlternates-Medium.otf"; path = "../src/fonts/MontserratAlternates-Medium.otf"; sourceTree = "<group>"; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F1B81DED7A748DDAC902ECB /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
@@ -460,7 +431,6 @@
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		8C62DB31928D4957B3ED34BD /* ReactNativeKeyboardManager.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = ReactNativeKeyboardManager.xcodeproj; path = "../node_modules/react-native-keyboard-manager/ios/ReactNativeKeyboardManager.xcodeproj"; sourceTree = "<group>"; };
-		93BC7814DF8A4BB592F700D4 /* ReactNativeExceptionHandler.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = ReactNativeExceptionHandler.xcodeproj; path = "../node_modules/react-native-exception-handler/ios/ReactNativeExceptionHandler.xcodeproj"; sourceTree = "<group>"; };
 		953E27C49EDC41F99007606D /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		96957AB1ED66484DB5688933 /* Montserrat-Thin.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Thin.otf"; path = "../src/fonts/Montserrat-Thin.otf"; sourceTree = "<group>"; };
 		9796B1EA32FE4EE2B9085A5C /* icons.woff */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = icons.woff; path = ../src/fonts/icons.woff; sourceTree = "<group>"; };
@@ -474,23 +444,25 @@
 		B956C8F3F0BA4BDCB3D571E6 /* Montserrat-Regular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Regular.otf"; path = "../src/fonts/Montserrat-Regular.otf"; sourceTree = "<group>"; };
 		BDFD263FC7A845F18CBB2165 /* MontserratAlternates-Black.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "MontserratAlternates-Black.otf"; path = "../src/fonts/MontserratAlternates-Black.otf"; sourceTree = "<group>"; };
 		C3C3E7B63B7249B8A429EE23 /* Montserrat-Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Bold.otf"; path = "../src/fonts/Montserrat-Bold.otf"; sourceTree = "<group>"; };
-		C5D03E48A13D4F68927DEBFF /* RCTOrientation.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTOrientation.xcodeproj; path = "../node_modules/react-native-orientation/iOS/RCTOrientation.xcodeproj"; sourceTree = "<group>"; };
 		C65292AE5CD741D0824B3AE2 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		D181ADD1C5EF4A24953ACE5B /* Montserrat-Black.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Black.otf"; path = "../src/fonts/Montserrat-Black.otf"; sourceTree = "<group>"; };
 		D87E5EED410A436CB04D57E5 /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
 		DD4A79F88AB847DB81C3749F /* Montserrat-Light.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Light.otf"; path = "../src/fonts/Montserrat-Light.otf"; sourceTree = "<group>"; };
 		DDFED5981282415EA0F701B5 /* SplashScreen.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = SplashScreen.xcodeproj; path = "../node_modules/react-native-splash-screen/ios/SplashScreen.xcodeproj"; sourceTree = "<group>"; };
-		E2A10B49483E4D71AEE05814 /* libReactNativeExceptionHandler.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libReactNativeExceptionHandler.a; sourceTree = "<group>"; };
 		E404B716D5D147EDBF7E83F4 /* MontserratAlternates-Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "MontserratAlternates-Bold.otf"; path = "../src/fonts/MontserratAlternates-Bold.otf"; sourceTree = "<group>"; };
 		E8F02EADCC2D48C087DD14EA /* icons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = icons.ttf; path = ../src/fonts/icons.ttf; sourceTree = "<group>"; };
-		EBF299D2EA944D3CA297C9E1 /* RNSentry.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNSentry.xcodeproj; path = "../node_modules/react-native-sentry/ios/RNSentry.xcodeproj"; sourceTree = "<group>"; };
 		EE8AE9E99D1244A18F08D051 /* libRNVectorIcons.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNVectorIcons.a; sourceTree = "<group>"; };
 		F528FF2820C6B4C300F1BBD9 /* ART.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ART.xcodeproj; path = "../node_modules/react-native/Libraries/ART/ART.xcodeproj"; sourceTree = "<group>"; };
 		F5B67FD65C9948ACB6ED5F72 /* libSplashScreen.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libSplashScreen.a; sourceTree = "<group>"; };
 		FA80F800FE36494A9C14A593 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
-		FCBEE0F7836D4931BF397520 /* libRNSentry.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNSentry.a; sourceTree = "<group>"; };
 		AA9F4B2C172F4D989860CE37 /* RNSpinkit.xcodeproj */ = {isa = PBXFileReference; name = "RNSpinkit.xcodeproj"; path = "../node_modules/react-native-spinkit/ios/RNSpinkit.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		BF58B4AA9B3D4BCBAB3D82C5 /* libRNSpinkit.a */ = {isa = PBXFileReference; name = "libRNSpinkit.a"; path = "libRNSpinkit.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		43711EB3119D493099BA0DB4 /* ReactNativeExceptionHandler.xcodeproj */ = {isa = PBXFileReference; name = "ReactNativeExceptionHandler.xcodeproj"; path = "../node_modules/react-native-exception-handler/ios/ReactNativeExceptionHandler.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		114C4A1C5D7E43DAA194D4DC /* libReactNativeExceptionHandler.a */ = {isa = PBXFileReference; name = "libReactNativeExceptionHandler.a"; path = "libReactNativeExceptionHandler.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		F376C675F06E438D933C05B8 /* RCTOrientation.xcodeproj */ = {isa = PBXFileReference; name = "RCTOrientation.xcodeproj"; path = "../node_modules/react-native-orientation/iOS/RCTOrientation.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		2252C4BA5D5845FEBD7BC9D9 /* libRCTOrientation.a */ = {isa = PBXFileReference; name = "libRCTOrientation.a"; path = "libRCTOrientation.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		DAA0C4D0A5C04E6CB0317D5C /* RNSentry.xcodeproj */ = {isa = PBXFileReference; name = "RNSentry.xcodeproj"; path = "../node_modules/@sentry/react-native/ios/RNSentry.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		23C7DBD246D344E1B2B26D9C /* libRNSentry.a */ = {isa = PBXFileReference; name = "libRNSentry.a"; path = "libRNSentry.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -515,14 +487,14 @@
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				1CA4EE9EC2684A4BAA10D2C7 /* libz.tbd in Frameworks */,
 				1102AE21F4E24278B100A7A0 /* libReactNativeKeyboardManager.a in Frameworks */,
-				52B8E82C21E2497F814586EC /* libReactNativeExceptionHandler.a in Frameworks */,
-				F8BD1C7B5127480B830D13C5 /* libRCTOrientation.a in Frameworks */,
 				266A4AD164284A22A1EB4746 /* libRCTRestart.a in Frameworks */,
-				2711B9A1A0EC4A8D8799F8E6 /* libRNSentry.a in Frameworks */,
 				E0D5A0B84381432895F9CDED /* libSplashScreen.a in Frameworks */,
 				EE28C943411343FF8755E213 /* libRNVectorIcons.a in Frameworks */,
 				FA82C15CD2D445E68656F310 /* libCodePush.a in Frameworks */,
 				2FCC0338D7A444E09EA8FEBB /* libRNSpinkit.a in Frameworks */,
+				34E7220F632E4D56B5464277 /* libReactNativeExceptionHandler.a in Frameworks */,
+				CBDD2B9C89BA47D58F7C2321 /* libRCTOrientation.a in Frameworks */,
+				0F07ECC11183452FACB523C6 /* libRNSentry.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -679,15 +651,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		59A883972345FC6E0033E788 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				59A883AE2345FC6E0033E788 /* libRNSentry.a */,
-				59A883B02345FC6E0033E788 /* libRNSentry-tvOS.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		59A883992345FC6E0033E788 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -704,26 +667,10 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		59A883B62345FC6E0033E788 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				59A883BA2345FC6E0033E788 /* libRCTOrientation.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		59A883C62345FC6E0033E788 /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				59A883CA2345FC6E0033E788 /* libRNVectorIcons.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		59A883CB2345FC6E0033E788 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				59A883CF2345FC6E0033E788 /* libReactNativeExceptionHandler.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -772,14 +719,14 @@
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				8C62DB31928D4957B3ED34BD /* ReactNativeKeyboardManager.xcodeproj */,
-				93BC7814DF8A4BB592F700D4 /* ReactNativeExceptionHandler.xcodeproj */,
-				C5D03E48A13D4F68927DEBFF /* RCTOrientation.xcodeproj */,
 				15B280CFA77F46BB861AF05C /* RCTRestart.xcodeproj */,
-				EBF299D2EA944D3CA297C9E1 /* RNSentry.xcodeproj */,
 				DDFED5981282415EA0F701B5 /* SplashScreen.xcodeproj */,
 				D87E5EED410A436CB04D57E5 /* RNVectorIcons.xcodeproj */,
 				5E0211E9D94D48D2A181413B /* CodePush.xcodeproj */,
 				AA9F4B2C172F4D989860CE37 /* RNSpinkit.xcodeproj */,
+				43711EB3119D493099BA0DB4 /* ReactNativeExceptionHandler.xcodeproj */,
+				F376C675F06E438D933C05B8 /* RCTOrientation.xcodeproj */,
+				DAA0C4D0A5C04E6CB0317D5C /* RNSentry.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -874,6 +821,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		1168482398154100918D6C64 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			path = Application;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -885,7 +840,7 @@
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				D6CA885EDB8E4F8895E38860 /* Upload Debug Symbols to Sentry */,
+				411968E2842748C7B087B6AC /* Upload Debug Symbols to Sentry */,
 			);
 			buildRules = (
 			);
@@ -961,10 +916,6 @@
 					ProjectRef = 00C302D31ABCB9D200DB3ED1 /* RCTNetwork.xcodeproj */;
 				},
 				{
-					ProductGroup = 59A883B62345FC6E0033E788 /* Products */;
-					ProjectRef = C5D03E48A13D4F68927DEBFF /* RCTOrientation.xcodeproj */;
-				},
-				{
 					ProductGroup = 59A883B42345FC6E0033E788 /* Products */;
 					ProjectRef = 15B280CFA77F46BB861AF05C /* RCTRestart.xcodeproj */;
 				},
@@ -989,16 +940,8 @@
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
 				},
 				{
-					ProductGroup = 59A883CB2345FC6E0033E788 /* Products */;
-					ProjectRef = 93BC7814DF8A4BB592F700D4 /* ReactNativeExceptionHandler.xcodeproj */;
-				},
-				{
 					ProductGroup = 59023B2B206E1E0900319964 /* Products */;
 					ProjectRef = 8C62DB31928D4957B3ED34BD /* ReactNativeKeyboardManager.xcodeproj */;
-				},
-				{
-					ProductGroup = 59A883972345FC6E0033E788 /* Products */;
-					ProjectRef = EBF299D2EA944D3CA297C9E1 /* RNSentry.xcodeproj */;
 				},
 				{
 					ProductGroup = 59A883C62345FC6E0033E788 /* Products */;
@@ -1248,13 +1191,6 @@
 			remoteRef = 591B13DE2345EEDC00336601 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		59A883AE2345FC6E0033E788 /* libRNSentry.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRNSentry.a;
-			remoteRef = 59A883AD2345FC6E0033E788 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		59A883B02345FC6E0033E788 /* libRNSentry-tvOS.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1269,13 +1205,6 @@
 			remoteRef = 59A883B22345FC6E0033E788 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		59A883BA2345FC6E0033E788 /* libRCTOrientation.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRCTOrientation.a;
-			remoteRef = 59A883B92345FC6E0033E788 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		59A883BD2345FC6E0033E788 /* libRCTRestart.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1288,13 +1217,6 @@
 			fileType = archive.ar;
 			path = libRNVectorIcons.a;
 			remoteRef = 59A883C92345FC6E0033E788 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		59A883CF2345FC6E0033E788 /* libReactNativeExceptionHandler.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libReactNativeExceptionHandler.a;
-			remoteRef = 59A883CE2345FC6E0033E788 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		59A88436234601DF0033E788 /* libCodePush.a */ = {
@@ -1421,17 +1343,17 @@
 			shellPath = /bin/sh;
 			shellScript = "export SENTRY_PROPERTIES=sentry.properties\nexport NODE_BINARY=node\n../node_modules/@sentry/cli/bin/sentry-cli react-native xcode ../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
-		D6CA885EDB8E4F8895E38860 /* Upload Debug Symbols to Sentry */ = {
+		411968E2842748C7B087B6AC /* Upload Debug Symbols to Sentry */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
+			runOnlyForDeploymentPostprocessing = 0;
+			name = "Upload Debug Symbols to Sentry";
 			inputPaths = (
 			);
-			name = "Upload Debug Symbols to Sentry";
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export SENTRY_PROPERTIES=sentry.properties\n../node_modules/@sentry/cli/bin/sentry-cli upload-dsym";
 		};
@@ -1474,20 +1396,21 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-keyboard-manager/ios/**",
-					"$(SRCROOT)/../node_modules/react-native-exception-handler/ios",
-					"$(SRCROOT)/../node_modules/react-native-orientation/iOS/RCTOrientation/**",
 					"$(SRCROOT)/../node_modules/react-native-restart/ios/RCTRestart/**",
-					"$(SRCROOT)/../node_modules/react-native-sentry/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-code-push/ios/CodePush/**",
 					"$(SRCROOT)/../node_modules/react-native-spinkit/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-exception-handler/ios",
+					"$(SRCROOT)/../node_modules/react-native-orientation/iOS/RCTOrientation/**",
+					"$(SRCROOT)/../node_modules/@sentry/react-native/ios/**",
 				);
 				INFOPLIST_FILE = BossStaffApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/BossStaffApp\"",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1513,20 +1436,21 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-keyboard-manager/ios/**",
-					"$(SRCROOT)/../node_modules/react-native-exception-handler/ios",
-					"$(SRCROOT)/../node_modules/react-native-orientation/iOS/RCTOrientation/**",
 					"$(SRCROOT)/../node_modules/react-native-restart/ios/RCTRestart/**",
-					"$(SRCROOT)/../node_modules/react-native-sentry/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-code-push/ios/CodePush/**",
 					"$(SRCROOT)/../node_modules/react-native-spinkit/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-exception-handler/ios",
+					"$(SRCROOT)/../node_modules/react-native-orientation/iOS/RCTOrientation/**",
+					"$(SRCROOT)/../node_modules/@sentry/react-native/ios/**",
 				);
 				INFOPLIST_FILE = BossStaffApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/BossStaffApp\"",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
