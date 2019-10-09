@@ -1,6 +1,7 @@
 
 fastlane/Matchfile
 android/gradle.properties
+.env.fastlane.*
 # expo
 .expo/
 /builds/
@@ -16,10 +17,12 @@ android/gradle.properties
 .env.test.local
 .env.production.local
 
+.env.fastlane.*
+
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
+*.jsbundle
 # OSX
 #
 .DS_Store

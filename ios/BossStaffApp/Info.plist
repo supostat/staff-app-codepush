@@ -26,6 +26,8 @@
 	<true/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
 		<key>NSExceptionDomains</key>
 		<dict>
 			<key>localhost</key>
@@ -59,6 +61,8 @@
 		<string>MontserratAlternates-Regular.otf</string>
 		<string>MontserratAlternates-SemiBold.otf</string>
 		<string>MontserratAlternates-Thin.otf</string>
+		<string>icons.ttf</string>
+		<string>icons.woff</string>
 		<string>Entypo.ttf</string>
 		<string>EvilIcons.ttf</string>
 		<string>Feather.ttf</string>
@@ -70,8 +74,6 @@
 		<string>Octicons.ttf</string>
 		<string>SimpleLineIcons.ttf</string>
 		<string>Zocial.ttf</string>
-		<string>icons.ttf</string>
-		<string>icons.woff</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

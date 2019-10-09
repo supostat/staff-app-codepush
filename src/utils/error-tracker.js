@@ -1,4 +1,4 @@
-import { Sentry } from 'react-native-sentry';
+import * as Sentry from '@sentry/react-native';
 
 export const ErrorTracker = {
   trackError(error) {
