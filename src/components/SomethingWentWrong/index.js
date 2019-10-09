@@ -4,15 +4,14 @@ import {
   Text,
   View,
   TouchableOpacity,
-  Image,
 } from 'react-native';
 import RNRestart from 'react-native-restart';
 import style from './style';
-import * as constants from '../../utils/constants';
+import { ErrorTracker } from '../../utils/error-tracker';
 
 function SomethingWentWrong(props) {
   const { error, isFatal } = props;
-  constants.BUGSNAG.notify(new Error(error));
+  ErrorTracker.trackError(error);
 
   const reloadApp = () => {
     RNRestart.Restart();

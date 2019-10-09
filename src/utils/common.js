@@ -1,5 +1,4 @@
 import _ from 'lodash';
-import moment from 'moment';
 import { FORM_ERROR } from 'final-form';
 import safeMoment from '../services/safeMoment';
 import numeral from 'numeral';
@@ -96,8 +95,8 @@ export function normalizeShifts(groupedShifts) {
       const year = groupedShifts[yearKey];
       const sortedWeeks = reverseKeys(year);
       const totalYear = _.map(sortedWeeks, (weekYear) => {
-        const monday = moment(year[weekYear][0].date, 'DD-MM-YYYY').isoWeekday(1);
-        const sunday = moment(year[weekYear][0].date, 'DD-MM-YYYY').isoWeekday(7);
+        const monday = safeMoment.uiDateParse(year[weekYear][0].date).isoWeekday(1);
+        const sunday = safeMoment.uiDateParse(year[weekYear][0].date).isoWeekday(7);
         return {
           data: year[weekYear]
             .slice()

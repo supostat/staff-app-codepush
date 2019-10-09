@@ -1,5 +1,5 @@
 import React from 'react';
-import { DrawerNavigator, NavigationActions, TabNavigator } from 'react-navigation';
+import { TabBarBottom, NavigationActions, TabNavigator } from 'react-navigation';
 import { connect } from 'react-redux';
 import { Alert, View } from 'react-native';
 import { ConnectivityRenderer } from 'react-native-offline';
@@ -14,6 +14,7 @@ import Profile from '../Profile/ProfileContainer';
 import Payments from '../Payments';
 import Shift from '../Shift/ShiftContainer';
 import * as constants from '../../utils/constants';
+import { ErrorTracker } from '../../utils/error-tracker';
 
 const Drawer = TabNavigator(
   {
@@ -45,6 +46,8 @@ const Drawer = TabNavigator(
     swipeEnabled: true,
     animationEnabled: true,
     lazy: true,
+    tabBarPosition: 'bottom',
+    tabBarComponent: TabBarBottom,
   },
 );
 
@@ -110,7 +113,7 @@ class SecureApp extends React.Component {
     });
     this.props.navigation.dispatch(resetAction);
     if (!this.ablyService) {
-      constants.BUGSNAG.notify(new Error("!!! Ably service doesn't exist in onLogout function !!!"));
+      ErrorTracker.trackError(new Error("!!! Ably service doesn't exist in onLogout function !!!"));
     } else {
       return this.ablyService.deactivate();
     }
@@ -125,7 +128,7 @@ class SecureApp extends React.Component {
     return (
       <ConnectivityRenderer
         pingServerUrl={`${this.props.currentUrl}/api/v1/version`}
-        timeout={10000}
+        timeout={20000}
       >
         {isConnected =>
           (isConnected ? (

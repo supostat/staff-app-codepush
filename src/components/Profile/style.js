@@ -13,6 +13,7 @@ module.exports = StyleSheet.create({
     backgroundColor: '#ffffff',
     flex: 1,
     width: (deviceWidth < 350) ? deviceWidth : 350,
+    paddingHorizontal: 30,
   },
   widthView: {
     width: (deviceWidth < 350) ? deviceWidth : 350,

@@ -3,14 +3,13 @@ package com.bossstaffapp;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
-import com.microsoft.codepush.react.CodePush;
-import org.devio.rn.splashscreen.SplashScreenReactPackage;
+import io.sentry.RNSentryPackage;
 import com.github.yamill.orientation.OrientationPackage;
-import com.oblador.vectoricons.VectorIconsPackage;
-import com.react.rnspinkit.RNSpinkitPackage;
-import com.learnium.RNDeviceInfo.RNDeviceInfo;
-import com.bugsnag.BugsnagReactNative;
 import com.masteratul.exceptionhandler.ReactNativeExceptionHandlerPackage;
+import com.react.rnspinkit.RNSpinkitPackage;
+import com.microsoft.codepush.react.CodePush;
+import com.oblador.vectoricons.VectorIconsPackage;
+import org.devio.rn.splashscreen.SplashScreenReactPackage;
 import com.avishayil.rnrestart.ReactNativeRestartPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -28,7 +27,7 @@ public class MainApplication extends Application implements ReactApplication {
         protected String getJSBundleFile() {
         return CodePush.getJSBundleFile();
         }
-    
+
     @Override
     public boolean getUseDeveloperSupport() {
       return BuildConfig.DEBUG;
@@ -38,14 +37,13 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new CodePush(null, getApplicationContext(), BuildConfig.DEBUG),
-            new SplashScreenReactPackage(),
+            new RNSentryPackage(),
             new OrientationPackage(),
-            new VectorIconsPackage(),
-            new RNSpinkitPackage(),
-            new RNDeviceInfo(),
-            BugsnagReactNative.getPackage(),
             new ReactNativeExceptionHandlerPackage(),
+            new RNSpinkitPackage(),
+            new CodePush(getResources().getString(R.string.reactNativeCodePush_androidDeploymentKey), getApplicationContext(), BuildConfig.DEBUG),
+            new VectorIconsPackage(),
+            new SplashScreenReactPackage(),
             new ReactNativeRestartPackage()
       );
     }

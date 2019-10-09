@@ -1,8 +1,9 @@
-import moment from 'moment';
+import safeMoment from '../services/safeMoment';
 import AsyncStorageUtil from '../utils/AsyncStorageUtil';
 import * as CONST from '../utils/constants';
 import httpService from './httpService';
 import AppManager from '../utils/AppManager';
+import { ErrorTracker } from '../utils/error-tracker';
 
 export default class SecurityAppAuth {
   static async deauthenticateUser() {
@@ -28,16 +29,16 @@ export default class SecurityAppAuth {
 
     if (expiresAt === null) return false;
 
-    const current = moment();
-    const expiration = moment(expiresAt);
-    return current >= expiration;
+    const current = safeMoment.current();
+    const expiration = safeMoment.iso8601Parse(expiresAt);
+    return current.isSameOrAfter(expiration);
   }
 
   static async refreshToken() {
     const renewalToken = await AsyncStorageUtil.getAsyncStorage(CONST.AUTH_RENEW_KEY);
     const baseUrl = await AppManager.getBaseUrl();
     if (renewalToken === null) {
-      CONST.BUGSNAG.notify(new Error('Renewal Token not found'));
+      ErrorTracker.trackError(new Error('Renewal Token not found'));
       return Promise.reject(new Error('Renewal Token not found'));
     }
     let response;
@@ -46,7 +47,7 @@ export default class SecurityAppAuth {
         renewalToken,
       });
     } catch (error) {
-      CONST.BUGSNAG.notify(new Error(error));
+      ErrorTracker.trackError(new Error(error));
       return Promise.reject(error);
     }
     const { authToken, expiresAt } = response.data;
@@ -59,7 +60,7 @@ export default class SecurityAppAuth {
   static async getToken() {
     const authToken = await AsyncStorageUtil.getAsyncStorage(CONST.AUTH_TOKEN_KEY);
     if (authToken === null) {
-      CONST.BUGSNAG.notify(new Error('Token not found'));
+      ErrorTracker.trackError(new Error('Token not found'));
       return Promise.reject(new Error('Token not found'));
     }
     if (await SecurityAppAuth.isTokenExpired()) {
@@ -67,7 +68,7 @@ export default class SecurityAppAuth {
       try {
         newAuthToken = await SecurityAppAuth.refreshToken();
       } catch (error) {
-        CONST.BUGSNAG.notify(new Error(error));
+        ErrorTracker.trackError(new Error(error));
         return Promise.reject(error);
       }
       return newAuthToken;
@@ -85,7 +86,7 @@ export default class SecurityAppAuth {
         password,
       });
     } catch (error) {
-      CONST.BUGSNAG.notify(new Error(error));
+      ErrorTracker.trackError(new Error(error));
       return Promise.reject(error);
     }
     const { authToken, expiresAt, renewToken } = response.data;

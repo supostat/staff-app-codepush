@@ -14,6 +14,8 @@ import { NavScreen } from '../NavBar/TopNavScreen';
 import styles from './styles';
 import PaymentItem from './PaymentItem';
 import PaymentConfirmationModal from './PaymentConfirmationModal';
+import * as constants from '../../utils/constants';
+import { ErrorTracker } from '../../utils/error-tracker';
 
 class Payments extends Component {
   state = {
@@ -26,19 +28,20 @@ class Payments extends Component {
     isConfirmModalVisible: false,
     isSuccessModalVisible: false,
     currentPaymentId: null,
+    refreshing: false,
   };
 
   _keyExtractor = (item, index) => item.id.toString();
 
   _renderItem = ({ item }) => (
-      <PaymentItem
-        id={item.id}
-        onPressItem={this.toggleConfirmModal}
-        amount={item.amount}
-        alert={item.alert}
-        date={item.date}
-        status={item.status}
-      />
+    <PaymentItem
+      id={item.id}
+      onPressItem={this.toggleConfirmModal}
+      amount={item.amount}
+      alert={item.alert}
+      date={item.date}
+      status={item.status}
+    />
   );
 
   toggleConfirmModal = (paymentId) => {
@@ -55,22 +58,47 @@ class Payments extends Component {
     }));
   };
 
+  onRefreshList = () => {
+    this.setState({ refreshing: true });
+    return this.props
+      .reloadShiftData()
+      .then(() => {
+        this.setState({ refreshing: false });
+      })
+      .catch((error) => {
+        this.props.screenProps.onGetTokenFailed();
+        ErrorTracker.trackError(error);
+      });
+  };
+
   render() {
-    const { onLogout } = this.props.screenProps;
     return (
       <SafeAreaView style={{ flex: 1, backgroundColor: '#ffffff' }}>
         <View style={styles.main}>
-          <NavScreen banner="Payments" navigation={this.props.navigation} onLogout={onLogout} />
+          <NavScreen banner="Payments" navigation={this.props.navigation} />
           <View style={styles.mainContent}>
             <View style={styles.mainContentInner}>
               <View style={styles.payments}>
-                <View style={styles.paymentsList}>
-                  <FlatList
-                    data={this.props.payments}
-                    keyExtractor={this._keyExtractor}
-                    renderItem={this._renderItem}
-                  />
-                </View>
+                <FlatList
+                  data={this.props.payments}
+                  keyExtractor={this._keyExtractor}
+                  renderItem={this._renderItem}
+                  refreshing={this.state.refreshing}
+                  onRefresh={this.onRefreshList}
+                  ListEmptyComponent={
+                    <View style={styles.paymentsItem}>
+                      <Text
+                        style={[
+                          styles.infoCardText,
+                          styles.infoCardTextPrimary,
+                          styles.infoCardTextAdjustRow,
+                        ]}
+                      >
+                        No payments exist
+                      </Text>
+                    </View>
+                  }
+                />
               </View>
             </View>
           </View>

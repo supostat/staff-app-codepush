@@ -1,21 +1,25 @@
 import React, { Component } from 'react';
-import { AppRegistry, View, Text } from 'react-native';
-import { Provider, connect } from 'react-redux';
+import { AppRegistry, View } from 'react-native';
+import { Provider } from 'react-redux';
 import { setJSExceptionHandler } from 'react-native-exception-handler';
-import { withNetworkConnectivity } from 'react-native-offline';
+import * as Sentry from '@sentry/react-native';
+import { APP_SENTRY_LINK } from 'react-native-dotenv';
+
 import SplashScreen from 'react-native-splash-screen';
 
-import './src/ReactotronConfig';
 import configureStore from './src/configureStore';
 import App from './App';
 import Spinner from './src/components/Loader';
 import SomethingWentWrong from './src/components/SomethingWentWrong';
 
+Sentry.init({
+  dsn: APP_SENTRY_LINK,
+});
 export default class BossStaffApp extends Component {
   constructor(props) {
     super(props);
     this.store = configureStore();
-    // setJSExceptionHandler(this.globalJSErrorhandler, true);
+    setJSExceptionHandler(this.globalJSErrorhandler, true);
     this.state = {
       isGlobalError: false,
       error: null,
@@ -29,7 +33,9 @@ export default class BossStaffApp extends Component {
   }
 
   globalJSErrorhandler = (error, isFatal) => {
-    this.setState({ isGlobalError: true, error, isFatal });
+    if (isFatal) {
+      this.setState({ isGlobalError: true, error, isFatal });
+    }
   };
 
   render() {
