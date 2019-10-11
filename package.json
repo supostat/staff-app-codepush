@@ -12,6 +12,7 @@
     "@sentry/react-native": "^1.0.7",
     "ably-react-native": "^1.0.0",
     "axios": "^0.18.0",
+    "babel-plugin-transform-inline-environment-variables": "^0.4.3",
     "dateformat": "^3.0.3",
     "final-form": "^4.8.2",
     "humanize-plus": "^1.8.2",

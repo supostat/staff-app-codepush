@@ -3,14 +3,14 @@ import { AppRegistry, View } from 'react-native';
 import { Provider } from 'react-redux';
 import { setJSExceptionHandler } from 'react-native-exception-handler';
 import * as Sentry from '@sentry/react-native';
-import { APP_SENTRY_LINK } from 'react-native-dotenv';
-
 import SplashScreen from 'react-native-splash-screen';
 
 import configureStore from './src/configureStore';
 import App from './App';
 import Spinner from './src/components/Loader';
 import SomethingWentWrong from './src/components/SomethingWentWrong';
+
+const APP_SENTRY_LINK = process.env.APP_SENTRY_LINK;
 
 Sentry.init({
   dsn: APP_SENTRY_LINK,

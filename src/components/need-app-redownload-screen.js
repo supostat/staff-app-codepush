@@ -1,6 +1,8 @@
 import React, { PureComponent } from 'react';
 import { StyleSheet, View, Text, Linking, TouchableOpacity, SafeAreaView, Platform } from 'react-native';
-import { APP_IOS_DOWNLOAD_URL, APP_ANDROID_DOWNLOAD_URL } from 'react-native-dotenv';
+
+const APP_IOS_DOWNLOAD_URL = process.env.APP_IOS_DOWNLOAD_URL;
+const APP_ANDROID_DOWNLOAD_URL = process.env.APP_ANDROID_DOWNLOAD_URL;
 
 const downloadUrl = Platform.select({
   ios: APP_IOS_DOWNLOAD_URL,
