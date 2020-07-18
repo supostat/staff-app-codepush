@@ -16,7 +16,7 @@
     "dateformat": "^3.0.3",
     "final-form": "^4.8.2",
     "humanize-plus": "^1.8.2",
-    "lodash": "^4.17.5",
+    "lodash": "^4.17.19",
     "moment": "^2.21.0",
     "moment-timezone": "^0.5.21",
     "numeral": "^2.0.6",
